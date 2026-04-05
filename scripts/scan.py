@@ -599,17 +599,23 @@ async def main():
     # 按标签数量排序
     result_tokens.sort(key=lambda x: len(x["tags"]), reverse=True)
 
-    trend_count = sum(1 for t in result_tokens if "趋势共振" in t["tags"])
+    # 默认组合筛选数量
+    DEFAULT_TAGS = {"趋势共振", "波动充足", "未追高"}
+    default_count = sum(
+        1 for t in result_tokens
+        if DEFAULT_TAGS.issubset({tag.split("(")[0] for tag in t["tags"]})
+    )
     elapsed = round(time.time() - scan_start, 1)
-    log.info("完成: %d个交易对, %d个可分析, %d个有标签, %d个趋势共振, 耗时%ss",
-             len(symbols), valid_count, len(result_tokens), trend_count, elapsed)
+    log.info("完成: %d个交易对, %d个可分析, %d个有标签, 默认组合%d个, 耗时%ss",
+             len(symbols), valid_count, len(result_tokens), default_count, elapsed)
 
     # 9. 写入结果
     result = {
         "scanTime": scan_time,
         "totalSymbols": len(symbols),
         "validSymbols": valid_count,
-        "filteredCount": len(result_tokens),
+        "filteredCount": default_count,
+        "totalTagged": len(result_tokens),
         "btcDirection": btc_direction,
         "elapsed": elapsed,
         "tokens": result_tokens,

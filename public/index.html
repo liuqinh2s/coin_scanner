@@ -411,6 +411,7 @@
                 justify-content: space-between;
                 align-items: center;
                 margin-bottom: 8px;
+                gap: 12px;
             }
 
             .card-symbol {
@@ -422,6 +423,8 @@
             .card-price {
                 font-size: 15px;
                 font-weight: 600;
+                text-align: right;
+                flex-shrink: 0;
             }
 
             .card-tags {
@@ -438,10 +441,12 @@
 
             .card-prices {
                 display: flex;
-                gap: 12px;
+                align-items: center;
+                gap: 16px;
                 font-size: 12px;
                 color: #7a8599;
-                margin-top: 4px;
+                margin-top: 6px;
+                font-variant-numeric: tabular-nums;
             }
         }
     </style>
@@ -609,7 +614,7 @@
 
             let tokens = data.tokens || [];
 
-            // 应用标签筛选
+            // 应用当前选中的标签筛选
             if (activeTagFilter.length > 0) {
                 tokens = tokens.filter(t =>
                     activeTagFilter.every(f =>
@@ -682,10 +687,16 @@
                 const key = getTagKey(tag);
                 const filterable = isFilterable(tag);
                 const onclick = filterable
-                    ? `onclick="event.stopPropagation();filterByTag('${esc(key)}')"` : ''; const title = filterable
-                        ? `title="点击筛选: ${esc(key)}"` : `title="${esc(tag)}"`;
+                    ? `onclick="event.stopPropagation();selectSingleTag('${esc(key)}')"` : '';
+                const title = filterable
+                    ? `title="点击筛选: ${esc(key)}"` : `title="${esc(tag)}"`;
                 return `<span class="tag ${cls}" ${onclick} ${title}>${esc(tag)}</span>`;
             }).join('');
+        }
+
+        function selectSingleTag(tagKey) {
+            activeTagFilter = [tagKey];
+            if (currentData) renderData(currentData);
         }
 
         function renderTable(tokens) {
