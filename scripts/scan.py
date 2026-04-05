@@ -1,0 +1,623 @@
+"""
+合约代币扫描器 — 扫描脚本 (GitHub Actions / 本地运行)
+
+数据源: Binance USDT 永续合约公开 API (无需 API Key)
+核心筛选: 多周期趋势共振 (15m + 1H + 4H + 1D)
+加分项标签: 成交量异动 · BTC大盘方向 · 防追高 · 资金费率 · 龙头币 · 仙人指路 · 波动充足
+"""
+from __future__ import annotations
+
+import asyncio
+import json
+import logging
+import math
+import os
+import sys
+import time
+from datetime import datetime, timezone, timedelta
+from pathlib import Path
+
+import aiohttp
+
+# ── 路径 ──
+ROOT = Path(__file__).resolve().parent.parent
+DATA_DIR = ROOT / "data"
+CONFIG_PATH = ROOT / "config.local.json"
+
+BINANCE_FAPI = "https://fapi.binance.com"
+TF_MAP = {"1D": "1d", "4H": "4h", "1H": "1h", "15m": "15m"}
+CYCLES = ["1D", "4H", "1H", "15m"]
+
+# ── 日志 ──
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    datefmt="%H:%M:%S",
+)
+log = logging.getLogger("scan")
+
+# ── 本地代理配置 ──
+proxy_url: str | None = None
+try:
+    if CONFIG_PATH.exists():
+        cfg = json.loads(CONFIG_PATH.read_text())
+        p = cfg.get("proxy", {})
+        if p.get("enabled"):
+            proxy_url = f"http://{p['host']}:{p['port']}"
+            log.info("已启用代理: %s", proxy_url)
+except Exception:
+    pass
+
+
+# ══════════════════════════════════════════════════════════════
+#  数据获取 (aiohttp 高并发)
+# ══════════════════════════════════════════════════════════════
+
+async def fetch_json(session: aiohttp.ClientSession, url: str) -> any:
+    for attempt in range(3):
+        try:
+            async with session.get(url, proxy=proxy_url, timeout=aiohttp.ClientTimeout(total=15)) as resp:
+                return await resp.json()
+        except Exception as e:
+            if attempt < 2:
+                await asyncio.sleep(1)
+            else:
+                log.debug("请求失败 %s: %s", url[:80], e)
+    return None
+
+
+async def fetch_all_symbols(session: aiohttp.ClientSession) -> list[str]:
+    """获取所有 USDT 永续合约交易对"""
+    data = await fetch_json(session, f"{BINANCE_FAPI}/fapi/v1/exchangeInfo")
+    if not data or "symbols" not in data:
+        return []
+    symbols = [
+        s["symbol"] for s in data["symbols"]
+        if s.get("contractType") == "PERPETUAL"
+        and s.get("quoteAsset") == "USDT"
+        and s.get("status") == "TRADING"
+    ]
+    log.info("获取到 %d 个 USDT 永续合约", len(symbols))
+    return symbols
+
+
+async def fetch_klines(session: aiohttp.ClientSession, symbol: str, interval: str, limit: int = 200):
+    """获取单个币种单个周期的 K 线"""
+    url = f"{BINANCE_FAPI}/fapi/v1/klines?symbol={symbol}&interval={interval}&limit={limit}"
+    data = await fetch_json(session, url)
+    if not isinstance(data, list):
+        return symbol, interval, []
+    # 统一格式: [ts, open, high, low, close, vol, quoteVol]
+    rows = [[k[0], k[1], k[2], k[3], k[4], k[5], k[7]] for k in data]
+    return symbol, interval, rows
+
+
+async def fetch_fund_rates(session: aiohttp.ClientSession) -> dict[str, float]:
+    """批量获取资金费率"""
+    data = await fetch_json(session, f"{BINANCE_FAPI}/fapi/v1/premiumIndex")
+    if not isinstance(data, list):
+        return {}
+    return {item["symbol"]: float(item.get("lastFundingRate", 0)) for item in data}
+
+
+INV_TF = {v: k for k, v in TF_MAP.items()}
+
+
+async def fetch_all_data(session: aiohttp.ClientSession, symbols: list[str], max_concurrent: int = 50) -> dict:
+    """高并发批量获取所有币种的多周期 K 线"""
+    all_sym: dict = {}
+    sem = asyncio.Semaphore(max_concurrent)
+
+    async def _limited(sym, interval):
+        async with sem:
+            return await fetch_klines(session, sym, interval)
+
+    # 一次性创建所有任务 (symbols × cycles)，全部并发
+    tasks = []
+    for sym in symbols:
+        for cycle in CYCLES:
+            tasks.append(_limited(sym, TF_MAP[cycle]))
+
+    total = len(tasks)
+    log.info("开始并发获取 K 线: %d 个请求, 并发上限 %d", total, max_concurrent)
+
+    results = await asyncio.gather(*tasks, return_exceptions=True)
+
+    for r in results:
+        if isinstance(r, tuple) and len(r) == 3:
+            sym, interval, data = r
+            if data:
+                tf = INV_TF.get(interval, interval)
+                all_sym.setdefault(sym, {})[tf] = {"data": data}
+
+    log.info("K 线获取完成: %d 个币种有数据", len(all_sym))
+    return all_sym
+
+
+# ══════════════════════════════════════════════════════════════
+#  技术指标计算
+# ══════════════════════════════════════════════════════════════
+
+def ema(data: list[float], span: int) -> list[float]:
+    k = 2 / (span + 1)
+    result = [data[0]]
+    for i in range(1, len(data)):
+        result.append(data[i] * k + result[-1] * (1 - k))
+    return result
+
+
+def sma(data: list[float], window: int) -> list[float]:
+    result = []
+    for i in range(len(data)):
+        if i < window - 1:
+            result.append(float("nan"))
+        else:
+            result.append(sum(data[i - window + 1: i + 1]) / window)
+    return result
+
+
+def calc_bollinger(closes: list[float], window: int = 20, num_std: int = 2):
+    mid = sma(closes, window)
+    upper, lower = [], []
+    for i in range(len(closes)):
+        if math.isnan(mid[i]):
+            upper.append(float("nan"))
+            lower.append(float("nan"))
+            continue
+        sum_sq = sum((closes[j] - mid[i]) ** 2 for j in range(i - window + 1, i + 1))
+        std = math.sqrt(sum_sq / window)
+        upper.append(mid[i] + std * num_std)
+        lower.append(mid[i] - std * num_std)
+    return {"mid": mid, "upper": upper, "lower": lower}
+
+
+def calc_macd(closes: list[float], short_span=12, long_span=26, signal_span=9):
+    ema_short = ema(closes, short_span)
+    ema_long = ema(closes, long_span)
+    macd_line = [s - l for s, l in zip(ema_short, ema_long)]
+    signal_line = ema(macd_line, signal_span)
+    return {"macdLine": macd_line, "signalLine": signal_line}
+
+
+def compute_indicators(all_sym: dict):
+    for symbol in list(all_sym.keys()):
+        for cycle in list(all_sym[symbol].keys()):
+            try:
+                closes = [float(x[4]) for x in all_sym[symbol][cycle]["data"]]
+                if len(closes) < 26:
+                    continue
+                all_sym[symbol][cycle]["bolling"] = calc_bollinger(closes)
+                all_sym[symbol][cycle]["macd"] = calc_macd(closes)
+            except (KeyError, IndexError, ValueError):
+                pass
+
+
+# ══════════════════════════════════════════════════════════════
+#  策略: 多周期趋势共振 (来源: bitget_bot/core/strategy.py)
+# ══════════════════════════════════════════════════════════════
+
+def is_15m_trend_up(sym: dict) -> bool:
+    b = sym["15m"]["bolling"]
+    m = sym["15m"]["macd"]
+    return b["mid"][-1] > b["mid"][-2] and m["macdLine"][-1] > 0
+
+
+def is_1h_trend_up(sym: dict) -> bool:
+    b = sym["1H"]["bolling"]
+    m = sym["1H"]["macd"]
+    if b["mid"][-1] <= b["mid"][-2] * 0.999:
+        return False
+    return (
+        m["macdLine"][-1] >= m["signalLine"][-1]
+        and m["macdLine"][-1] >= m["macdLine"][-2]
+        and m["signalLine"][-1] >= m["signalLine"][-2]
+    )
+
+
+def is_4h_trend_up(sym: dict) -> bool:
+    b = sym["4H"]["bolling"]
+    m = sym["4H"]["macd"]
+    if b["mid"][-1] <= b["mid"][-2] * 0.999:
+        return False
+    return m["macdLine"][-1] >= m["macdLine"][-2]
+
+
+def is_1d_trend_up(sym: dict) -> bool:
+    b = sym["1D"]["bolling"]
+    close = float(sym["1D"]["data"][-1][4])
+    return (
+        b["mid"][-1] > b["mid"][-2] > b["mid"][-3] > b["mid"][-4]
+        and b["upper"][-1] > b["upper"][-2] > b["upper"][-3] > b["upper"][-4]
+        and close > b["mid"][-1]
+    )
+
+
+# ── BTC 大盘方向 ──
+
+def is_btc_trend_up(all_sym: dict) -> bool:
+    btc = all_sym.get("BTCUSDT")
+    if not btc or "1D" not in btc or not btc["1D"]["data"]:
+        return False
+    bar = btc["1D"]["data"][-1]
+    return float(bar[4]) > float(bar[1]) * 1.02
+
+
+def is_btc_trend_down(all_sym: dict) -> bool:
+    btc = all_sym.get("BTCUSDT")
+    if not btc or "1D" not in btc or "1H" not in btc:
+        return True
+    d = btc["1D"]["data"]
+    h = btc["1H"]["data"]
+    if len(d) < 7 or len(h) < 25:
+        return True
+    close = float(d[-1][4])
+    return any([
+        float(d[-1][1]) > close * 1.02,
+        float(h[-25][4]) > close * 1.02,
+        float(d[-7][4]) > close * 1.05,
+        float(d[-5][4]) > close * 1.05,
+        float(d[-3][4]) > close * 1.03,
+        float(d[-4][4]) > close * 1.04,
+    ])
+
+
+# ══════════════════════════════════════════════════════════════
+#  加分项检测 (来源: bitget_bot/core/scanner.py + live_trading.py)
+# ══════════════════════════════════════════════════════════════
+
+def _sum_vol(data, n, j, frm, to):
+    s = 0.0
+    for i in range(frm, to):
+        idx = n + i + j
+        if 0 <= idx < len(data):
+            s += float(data[idx][6])
+    return s
+
+
+def _is_15m_step_up(sym, j):
+    mid = sym["15m"]["bolling"]["mid"]
+    for i in range(-2, 0):
+        diff_cur = mid[len(mid) + i + j] - mid[len(mid) + i - 1 + j]
+        diff_prev = mid[len(mid) + i - 1 + j] - mid[len(mid) + i - 2 + j]
+        if diff_cur < diff_prev * 0.9999:
+            return False
+        if diff_prev * 0.9999 < 0:
+            return False
+    return True
+
+
+def _is_15m_anomaly(all_sym, symbol, j):
+    sym = all_sym[symbol]
+    data = sym["15m"]["data"]
+    n = len(data)
+    upper = sym["15m"]["bolling"]["upper"][n - 3 + j]
+    lower = sym["15m"]["bolling"]["lower"][n - 3 + j]
+    if upper > lower * 1.1 and not _is_15m_step_up(sym, j):
+        return False
+    if "1H" in sym and "bolling" in sym["1H"]:
+        n1h = len(sym["1H"]["bolling"]["upper"])
+        u1h = sym["1H"]["bolling"]["upper"][n1h - 3 + j]
+        l1h = sym["1H"]["bolling"]["lower"][n1h - 3 + j]
+        if u1h > l1h * 1.22:
+            return False
+    vol_sum_9 = _sum_vol(data, n, j, -11, -2)
+    vol_sum_19 = vol_sum_9 + _sum_vol(data, n, j, -21, -11)
+    bar_vol = float(data[n - 2 + j][6])
+    bar_close = float(data[n - 2 + j][4])
+    bar_open = float(data[n - 2 + j][1])
+    vol_short = bar_vol >= vol_sum_9 and bar_vol >= 100_000
+    vol_long = bar_vol >= vol_sum_19 and bar_vol >= 40_000
+    price_ok = bar_open * 0.992 < bar_close < bar_open * 1.23
+    return (vol_short or vol_long) and price_ok
+
+
+def _is_1h_anomaly(all_sym, symbol, j):
+    data = all_sym[symbol]["1H"]["data"]
+    n = len(data)
+    bar_vol = float(data[n - 1 + j][6])
+    if bar_vol < 400_000:
+        return False
+    vol_sum = _sum_vol(data, n, j, -6, -1)
+    if bar_vol < vol_sum:
+        return False
+    bar_close = float(data[n - 1 + j][4])
+    bar_open = float(data[n - 1 + j][1])
+    return bar_open * 1.02 < bar_close < bar_open * 1.5
+
+
+def _is_4h_anomaly(all_sym, symbol, j):
+    data = all_sym[symbol]["4H"]["data"]
+    n = len(data)
+    bar_vol = float(data[n - 1 + j][6])
+    if bar_vol < 800_000:
+        return False
+    vol_sum = _sum_vol(data, n, j, -5, -1)
+    if bar_vol < vol_sum:
+        return False
+    bar_close = float(data[n - 1 + j][4])
+    bar_open = float(data[n - 1 + j][1])
+    return bar_open * 1.05 < bar_close < bar_open * 2
+
+
+def _has_recent_anomaly(all_sym, symbol):
+    try:
+        for i in range(-7, 0):
+            if _is_15m_anomaly(all_sym, symbol, i):
+                return True
+            if _is_1h_anomaly(all_sym, symbol, i):
+                return True
+        for i in range(-5, 0):
+            if _is_4h_anomaly(all_sym, symbol, i):
+                return True
+    except (IndexError, KeyError, ValueError):
+        pass
+    return False
+
+
+def detect_volume_anomaly(all_sym, symbol) -> str:
+    try:
+        if _has_recent_anomaly(all_sym, symbol):
+            return ""
+        if _is_15m_anomaly(all_sym, symbol, 0):
+            return "15m"
+        if _is_1h_anomaly(all_sym, symbol, 0):
+            return "1H"
+        if _is_4h_anomaly(all_sym, symbol, 0):
+            return "4H"
+    except (IndexError, KeyError, ValueError):
+        pass
+    return ""
+
+
+# ── 防追高 ──
+
+def _min_price_7d(sym):
+    data = sym["1D"]["data"]
+    days = min(7, len(data))
+    return min(float(data[-i][3]) for i in range(1, days + 1))
+
+
+def check_anti_chase(sym) -> bool:
+    try:
+        data = sym["1D"]["data"]
+        close = float(data[-1][4])
+        b = sym["1D"]["bolling"]
+        not_overextended = close < _min_price_7d(sym) * 2.7 and b["upper"][-1] < b["lower"][-1] * 2.7
+        not_above_upper = close < b["upper"][-1] * 1.1
+        return not_overextended and not_above_upper
+    except (IndexError, KeyError, ValueError):
+        return False
+
+
+# ── 龙头币 ──
+
+def find_leading_coins(all_sym) -> set[str]:
+    result = set()
+    for key in all_sym:
+        data = all_sym[key].get("1D", {}).get("data")
+        if not data or len(data) < 20:
+            continue
+        for i in range(-5, -1):
+            try:
+                idx1 = len(data) - 1 + i
+                idx2 = len(data) - 5 + i
+                if idx2 < 0:
+                    continue
+                if float(data[idx1][4]) > float(data[idx2][4]) * 1.2:
+                    result.add(key)
+                    break
+            except (IndexError, ValueError):
+                continue
+    return result
+
+
+# ── 仙人指路 ──
+
+def find_fairy_guide(all_sym, candidates) -> set[str]:
+    result = set()
+    for sym in candidates:
+        if sym not in all_sym or "1D" not in all_sym[sym]:
+            continue
+        data = all_sym[sym]["1D"]["data"]
+        if len(data) < 20:
+            continue
+        for i in range(len(data) - 10, len(data)):
+            if i < 10:
+                continue
+            try:
+                vol_sum = sum(float(data[j][6]) for j in range(i - 10, i - 1))
+                bar = data[i]
+                o, h, c, v = float(bar[1]), float(bar[2]), float(bar[4]), float(bar[6])
+                if v > vol_sum and o * 1.2 < h < o * 1.6 and h * 0.92 > c > o:
+                    result.add(sym)
+                    break
+            except (IndexError, ValueError):
+                continue
+    return result
+
+
+# ── 波动充足 ──
+
+def is_not_rubbish(sym) -> bool:
+    try:
+        data = sym["1D"]["data"]
+        for i in range(-3, 0):
+            if float(data[i][2]) > float(data[i][3]) * 1.1:
+                return True
+        return False
+    except (IndexError, KeyError, ValueError):
+        return False
+
+
+# ══════════════════════════════════════════════════════════════
+#  数据校验
+# ══════════════════════════════════════════════════════════════
+
+def is_valid(sym: dict) -> bool:
+    for tf in ("4H", "1H", "15m"):
+        if tf not in sym or not sym[tf].get("data") or len(sym[tf]["data"]) < 26:
+            return False
+    if "1D" not in sym or not sym["1D"].get("data") or len(sym["1D"]["data"]) < 20:
+        return False
+    return True
+
+
+def has_indicators(sym: dict) -> bool:
+    for tf in ("1D", "4H", "1H", "15m"):
+        if tf not in sym or "bolling" not in sym[tf] or "macd" not in sym[tf]:
+            return False
+    return True
+
+
+# ══════════════════════════════════════════════════════════════
+#  主扫描流程
+# ══════════════════════════════════════════════════════════════
+
+async def main():
+    scan_start = time.time()
+    bj_tz = timezone(timedelta(hours=8))
+    scan_time = datetime.now(bj_tz).strftime("%Y-%m-%d %H:%M:%S")
+    log.info("========== SCAN START: %s ==========", scan_time)
+
+    async with aiohttp.ClientSession() as session:
+        # 1. 获取所有交易对
+        log.info("获取 Binance USDT 永续合约交易对...")
+        symbols = await fetch_all_symbols(session)
+        if not symbols:
+            log.error("无法获取交易对，退出")
+            sys.exit(1)
+
+        # 2. 高并发获取 K 线数据
+        all_sym = await fetch_all_data(session, symbols, max_concurrent=50)
+
+        # 3. 获取资金费率
+        log.info("获取资金费率...")
+        fund_rates = await fetch_fund_rates(session)
+
+    # 4. 计算技术指标
+    log.info("计算技术指标...")
+    compute_indicators(all_sym)
+
+    # 5. BTC 大盘方向
+    btc_up = is_btc_trend_up(all_sym)
+    btc_down = is_btc_trend_down(all_sym)
+    btc_direction = "up" if btc_up else ("down" if btc_down else "neutral")
+    log.info("BTC 方向: %s", btc_direction)
+
+    # 6. 核心筛选: 多周期趋势共振
+    log.info("执行多周期趋势共振筛选...")
+    result_tokens = []
+    valid_count = 0
+
+    for key in all_sym:
+        if key == "BTCUSDT":
+            continue
+        sym = all_sym[key]
+        if not is_valid(sym) or not has_indicators(sym):
+            continue
+        valid_count += 1
+
+        try:
+            trend_all_up = (
+                is_15m_trend_up(sym)
+                and is_1h_trend_up(sym)
+                and is_4h_trend_up(sym)
+                and is_1d_trend_up(sym)
+            )
+        except (IndexError, KeyError, ValueError):
+            continue
+        if not trend_all_up:
+            continue
+
+        tags = []
+
+        anomaly_tf = detect_volume_anomaly(all_sym, key)
+        if anomaly_tf:
+            tags.append(f"成交量异动({anomaly_tf})")
+
+        if btc_up:
+            tags.append("BTC看多")
+
+        if check_anti_chase(sym):
+            tags.append("未追高")
+
+        fr = fund_rates.get(key, 0)
+        if fr < -0.0001:
+            tags.append(f"负费率({fr * 100:.4f}%)")
+
+        if is_not_rubbish(sym):
+            tags.append("波动充足")
+
+        last_bar = sym["1D"]["data"][-1]
+        close = float(last_bar[4])
+        high = float(last_bar[2])
+        low = float(last_bar[3])
+        open_p = float(last_bar[1])
+        change_pct = ((close - open_p) / open_p * 100) if open_p else 0
+
+        result_tokens.append({
+            "symbol": key,
+            "price": close,
+            "high_24h": high,
+            "low_24h": low,
+            "change_pct": round(change_pct, 2),
+            "fund_rate": round(fr, 6),
+            "tags": tags,
+        })
+
+    # 7. 龙头币
+    leading = find_leading_coins(all_sym)
+    for t in result_tokens:
+        if t["symbol"] in leading:
+            t["tags"].append("龙头币")
+
+    # 8. 仙人指路
+    fairy = find_fairy_guide(all_sym, [t["symbol"] for t in result_tokens])
+    for t in result_tokens:
+        if t["symbol"] in fairy:
+            t["tags"].append("仙人指路")
+
+    # 按标签数量排序
+    result_tokens.sort(key=lambda x: len(x["tags"]), reverse=True)
+
+    elapsed = round(time.time() - scan_start, 1)
+    log.info("完成: %d个交易对, %d个可分析, %d个通过筛选, 耗时%ss",
+             len(symbols), valid_count, len(result_tokens), elapsed)
+
+    # 9. 写入结果
+    result = {
+        "scanTime": scan_time,
+        "totalSymbols": len(symbols),
+        "validSymbols": valid_count,
+        "filteredCount": len(result_tokens),
+        "btcDirection": btc_direction,
+        "elapsed": elapsed,
+        "tokens": result_tokens,
+    }
+
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    bj_now = datetime.now(bj_tz)
+    scan_id = bj_now.strftime("%Y-%m-%dT%H-%M-%S")
+    scan_file = DATA_DIR / f"{scan_id}.json"
+    scan_file.write_text(json.dumps(result, indent=2, ensure_ascii=False))
+    log.info("写入 %s", scan_file)
+
+    # 清理 7 天前的数据
+    import re
+    cutoff = time.time() - 7 * 86400
+    cleaned = 0
+    for f in DATA_DIR.glob("*.json"):
+        m = re.match(r"(\d{4})-(\d{2})-(\d{2})T(\d{2})-(\d{2})-(\d{2})\.json", f.name)
+        if not m:
+            continue
+        y, mo, d, h, mi, s = m.groups()
+        file_ts = datetime(int(y), int(mo), int(d), int(h), int(mi), int(s), tzinfo=timezone.utc).timestamp()
+        if file_ts < cutoff:
+            f.unlink()
+            cleaned += 1
+    if cleaned:
+        log.info("清理 %d 个旧数据文件", cleaned)
+
+
+if __name__ == "__main__":
+    asyncio.run(main())

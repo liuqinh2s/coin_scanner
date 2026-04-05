@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>合约代币扫描器</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, monospace;
+            background: #0a0e17;
+            color: #e1e8f0;
+            min-height: 100vh;
+        }
+
+        #app {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 24px 0 16px;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #f0b90b;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            color: #7a8599;
+            font-size: 13px;
+            margin-top: 4px;
+        }
+
+        .filter-desc {
+            color: #5a6a80;
+            font-size: 11px;
+            margin-top: 6px;
+            line-height: 1.6;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stats-bar {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 16px 0;
+        }
+
+        .stat {
+            background: #141924;
+            border: 1px solid #1e2a3a;
+            border-radius: 8px;
+            padding: 12px 20px;
+            text-align: center;
+            min-width: 130px;
+        }
+
+        .stat .label {
+            display: block;
+            font-size: 11px;
+            color: #5a6a80;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+        }
+
+        .stat .val {
+            display: block;
+            font-size: 18px;
+            font-weight: 700;
+            color: #e1e8f0;
+            margin-top: 4px;
+        }
+
+        .stat .val.up {
+            color: #00c853;
+        }
+
+        .stat .val.down {
+            color: #ff4d4f;
+        }
+
+        .stat .val.neutral {
+            color: #f0b90b;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 16px 0;
+        }
+
+        button {
+            background: #1e2a3a;
+            color: #e1e8f0;
+            border: 1px solid #2a3a50;
+            border-radius: 6px;
+            padding: 8px 18px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all .2s;
+        }
+
+        button:hover {
+            background: #f0b90b;
+            color: #0a0e17;
+            border-color: #f0b90b;
+        }
+
+        button.active {
+            background: #f0b90b;
+            color: #0a0e17;
+            border-color: #f0b90b;
+        }
+
+        .tag-bar {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 12px 0;
+            padding: 12px;
+            background: #141924;
+            border: 1px solid #1e2a3a;
+            border-radius: 8px;
+        }
+
+        .tag-filter {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 12px;
+            cursor: pointer;
+            border: 1px solid #2a3a50;
+            background: #1e2a3a;
+            color: #e1e8f0;
+            transition: all .2s;
+            user-select: none;
+        }
+
+        .tag-filter:hover {
+            border-color: #f0b90b;
+            color: #f0b90b;
+        }
+
+        .tag-filter.active {
+            background: #f0b90b;
+            color: #0a0e17;
+            border-color: #f0b90b;
+        }
+
+        .tag-filter .count {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 1px 6px;
+            border-radius: 10px;
+            font-size: 10px;
+        }
+
+        .tag-filter.active .count {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .tag-filter.disabled {
+            cursor: default;
+            opacity: 0.6;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 12px;
+        }
+
+        th {
+            background: #141924;
+            color: #7a8599;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            padding: 10px 8px;
+            text-align: left;
+            border-bottom: 1px solid #1e2a3a;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        td {
+            padding: 10px 8px;
+            border-bottom: 1px solid #111827;
+            font-size: 13px;
+        }
+
+        tr:hover td {
+            background: #111827;
+        }
+
+        .symbol-link {
+            color: #8ecdf7;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .symbol-link:hover {
+            text-decoration: underline;
+        }
+
+        .price-up {
+            color: #00c853;
+        }
+
+        .price-down {
+            color: #ff4d4f;
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin: 1px 3px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all .15s;
+        }
+
+        .tag:hover {
+            opacity: 0.8;
+            transform: scale(1.05);
+        }
+
+        .tag-volume {
+            background: #e040fb;
+            color: #fff;
+        }
+
+        .tag-btc {
+            background: #f0b90b;
+            color: #0a0e17;
+            cursor: default;
+        }
+
+        .tag-btc:hover {
+            transform: none;
+        }
+
+        .tag-safe {
+            background: #00c853;
+            color: #fff;
+        }
+
+        .tag-fundrate {
+            background: #00bcd4;
+            color: #fff;
+        }
+
+        .tag-leading {
+            background: #ff6d00;
+            color: #fff;
+        }
+
+        .tag-fairy {
+            background: #7c4dff;
+            color: #fff;
+        }
+
+        .tag-volatile {
+            background: #26a69a;
+            color: #fff;
+        }
+
+        .no-data {
+            text-align: center;
+            padding: 40px;
+            color: #5a6a80;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .history-panel {
+            background: #141924;
+            border: 1px solid #1e2a3a;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 12px 0;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .history-panel h3 {
+            color: #f0b90b;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .hist-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 10px;
+            border-bottom: 1px solid #1e2a3a;
+            font-size: 12px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .hist-row:hover {
+            background: #1e2a3a;
+        }
+
+        .hist-row .ht {
+            color: #7a8599;
+        }
+
+        .hist-row .hv {
+            color: #f0b90b;
+            font-weight: 600;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #f0b90b;
+            color: #0a0e17;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            z-index: 999;
+            transition: opacity .3s;
+        }
+
+        /* Mobile card layout */
+        .card-list {
+            display: none;
+        }
+
+        @media (max-width: 900px) {
+            #tokenTable table {
+                display: none;
+            }
+
+            .card-list {
+                display: block;
+            }
+
+            .token-card {
+                background: #141924;
+                border: 1px solid #1e2a3a;
+                border-radius: 10px;
+                padding: 14px;
+                margin-bottom: 10px;
+            }
+
+            .card-top {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 8px;
+            }
+
+            .card-symbol {
+                font-size: 16px;
+                font-weight: 700;
+                color: #8ecdf7;
+            }
+
+            .card-price {
+                font-size: 15px;
+                font-weight: 600;
+            }
+
+            .card-tags {
+                margin: 8px 0;
+            }
+
+            .card-meta {
+                display: flex;
+                justify-content: space-between;
+                font-size: 11px;
+                color: #5a6a80;
+                margin-top: 6px;
+            }
+
+            .card-prices {
+                display: flex;
+                gap: 12px;
+                font-size: 12px;
+                color: #7a8599;
+                margin-top: 4px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <h1>🔍 合约代币扫描器</h1>
+            <p class="subtitle">每15分钟扫描 · Binance USDT永续 · 多周期趋势共振选币</p>
+            <p class="filter-desc">
+                核心筛选：15m + 1H + 4H + 1D 四周期趋势同时看多（布林中轨+MACD共振）<br>
+                加分项标签（可点击筛选）：成交量异动 · 防追高 · 负资金费率 · 龙头币 · 仙人指路 · 波动充足<br>
+                BTC大盘方向为全局条件，不可作为筛选标签
+            </p>
+        </header>
+
+        <div class="stats-bar" id="statsBar">
+            <div class="stat">
+                <span class="label">扫描时间</span>
+                <span class="val" id="scanTime">--</span>
+            </div>
+            <div class="stat">
+                <span class="label">交易对总数</span>
+                <span class="val" id="totalSymbols">--</span>
+            </div>
+            <div class="stat">
+                <span class="label">可分析</span>
+                <span class="val" id="validSymbols">--</span>
+            </div>
+            <div class="stat">
+                <span class="label">筛选通过</span>
+                <span class="val" id="filteredCount">--</span>
+            </div>
+            <div class="stat">
+                <span class="label">BTC 方向</span>
+                <span class="val" id="btcDirection">--</span>
+            </div>
+            <div class="stat">
+                <span class="label">耗时</span>
+                <span class="val" id="elapsed">--</span>
+            </div>
+        </div>
+
+        <div class="actions">
+            <button id="btnHistory" onclick="toggleHistory()">📋 历史记录</button>
+            <button id="btnLatest" onclick="goLatest()">回到当前</button>
+            <button onclick="clearFilter()">✖ 清除筛选</button>
+        </div>
+
+        <div id="tagBar" class="tag-bar hidden"></div>
+
+        <div id="historyPanel" class="history-panel hidden">
+            <h3>扫描历史</h3>
+            <div id="historyList"></div>
+        </div>
+
+        <div id="tokenTable">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>交易对</th>
+                        <th>价格</th>
+                        <th>24h涨跌</th>
+                        <th>24h高/低</th>
+                        <th>资金费率</th>
+                        <th>加分项标签</th>
+                    </tr>
+                </thead>
+                <tbody id="tokenBody"></tbody>
+            </table>
+            <p id="noData" class="no-data hidden">暂无符合多周期趋势共振条件的代币。</p>
+            <div id="cardList" class="card-list"></div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast hidden"></div>
+    <script>
+        let currentData = null;
+        let activeTagFilter = null;
+        let historyVisible = false;
+        const cache = {};
+
+        // 标签样式映射
+        const TAG_STYLES = {
+            '成交量异动': 'tag-volume',
+            'BTC看多': 'tag-btc',
+            '未追高': 'tag-safe',
+            '负费率': 'tag-fundrate',
+            '龙头币': 'tag-leading',
+            '仙人指路': 'tag-fairy',
+            '波动充足': 'tag-volatile',
+        };
+
+        // 不支持点击筛选的标签（非筛币条件）
+        const NON_FILTERABLE = new Set(['BTC看多']);
+
+        function getTagClass(tag) {
+            for (const [key, cls] of Object.entries(TAG_STYLES)) {
+                if (tag.startsWith(key) || tag.includes(key)) return cls;
+            }
+            return 'tag-volatile';
+        }
+
+        function getTagKey(tag) {
+            for (const key of Object.keys(TAG_STYLES)) {
+                if (tag.startsWith(key) || tag.includes(key)) return key;
+            }
+            return tag;
+        }
+
+        function isFilterable(tag) {
+            return !NON_FILTERABLE.has(getTagKey(tag));
+        }
+
+        async function cachedFetch(url, bustCache) {
+            if (!bustCache && cache[url]) return cache[url];
+            const fetchUrl = bustCache ? url + (url.includes('?') ? '&' : '?') + '_t=' + Date.now() : url;
+            const res = await fetch(fetchUrl);
+            const data = await res.json();
+            cache[url] = data;
+            return data;
+        }
+
+        async function loadLatest() {
+            try {
+                const data = await cachedFetch('/api/latest', true);
+                currentData = data;
+                renderData(data);
+            } catch (e) { console.error(e); }
+        }
+
+        function esc(s) {
+            const d = document.createElement('div');
+            d.textContent = s;
+            return d.innerHTML;
+        }
+
+        function fmtPrice(p) {
+            if (!p || p === 0) return '--';
+            if (p < 0.0001) return p.toFixed(8);
+            if (p < 1) return p.toFixed(6);
+            if (p < 100) return p.toFixed(4);
+            return p.toFixed(2);
+        }
+
+        function renderData(data) {
+            document.getElementById('scanTime').textContent = data.scanTime || '--';
+            document.getElementById('totalSymbols').textContent =
+                data.totalSymbols != null ? data.totalSymbols.toLocaleString() : '--';
+            document.getElementById('validSymbols').textContent =
+                data.validSymbols != null ? data.validSymbols.toLocaleString() : '--';
+            document.getElementById('filteredCount').textContent =
+                data.filteredCount != null ? data.filteredCount.toLocaleString() : '--';
+            document.getElementById('elapsed').textContent =
+                data.elapsed != null ? data.elapsed + 's' : '--';
+
+            const btcEl = document.getElementById('btcDirection');
+            const dir = data.btcDirection || 'unknown';
+            btcEl.textContent = dir === 'up' ? '📈 看多' : dir === 'down' ? '📉 看空' : '➡️ 中性';
+            btcEl.className = 'val ' + (dir === 'up' ? 'up' : dir === 'down' ? 'down' : 'neutral');
+
+            let tokens = data.tokens || [];
+
+            // 应用标签筛选
+            if (activeTagFilter) {
+                tokens = tokens.filter(t =>
+                    t.tags.some(tag => getTagKey(tag) === activeTagFilter)
+                );
+            }
+
+            renderTagBar(data.tokens || []);
+            renderTable(tokens);
+            renderCards(tokens);
+
+            const noData = document.getElementById('noData');
+            if (tokens.length === 0) {
+                noData.classList.remove('hidden');
+            } else {
+                noData.classList.add('hidden');
+            }
+        }
+
+        function renderTagBar(tokens) {
+            const tagBar = document.getElementById('tagBar');
+            const tagCounts = {};
+            for (const t of tokens) {
+                for (const tag of t.tags) {
+                    const key = getTagKey(tag);
+                    tagCounts[key] = (tagCounts[key] || 0) + 1;
+                }
+            }
+            if (Object.keys(tagCounts).length === 0) {
+                tagBar.classList.add('hidden');
+                return;
+            }
+            tagBar.classList.remove('hidden');
+
+            const sorted = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
+            tagBar.innerHTML = sorted.map(([key, count]) => {
+                const isActive = activeTagFilter === key ? ' active' : '';
+                const filterable = !NON_FILTERABLE.has(key);
+                const onclick = filterable ? `onclick="filterByTag('${esc(key)}')"` : '';
+                const disabledCls = filterable ? '' : ' disabled';
+                const title = filterable
+                    ? `title="点击筛选: ${esc(key)}"`
+                    : `title="${esc(key)}（全局条件，不可筛选）"`;
+                return `<span class="tag-filter${isActive}${disabledCls}" ${onclick} ${title}>
+          ${esc(key)} <span class="count">${count}</span>
+        </span>`;
+            }).join('');
+        }
+
+        function filterByTag(tagKey) {
+            activeTagFilter = activeTagFilter === tagKey ? null : tagKey;
+            if (currentData) renderData(currentData);
+        }
+
+        function clearFilter() {
+            activeTagFilter = null;
+            if (currentData) renderData(currentData);
+            showToast('已清除筛选');
+        }
+
+        function buildTags(tags) {
+            return tags.map(tag => {
+                const cls = getTagClass(tag);
+                const key = getTagKey(tag);
+                const filterable = isFilterable(tag);
+                const onclick = filterable
+                    ? `onclick="event.stopPropagation();filterByTag('${esc(key)}')"` : '';
+                const title = filterable
+                    ? `title="点击筛选: ${esc(key)}"` : `title="${esc(tag)}"`;
+                return `<span class="tag ${cls}" ${onclick} ${title}>${esc(tag)}</span>`;
+            }).join('');
+        }
+
+        function renderTable(tokens) {
+            const tbody = document.getElementById('tokenBody');
+            tbody.innerHTML = tokens.map((t, i) => {
+                const changeCls = t.change_pct >= 0 ? 'price-up' : 'price-down';
+                const changeSign = t.change_pct >= 0 ? '+' : '';
+                const frColor = t.fund_rate < 0 ? 'color:#00bcd4' : t.fund_rate > 0.0003 ? 'color:#ff4d4f' : '';
+                const sym = esc(t.symbol);
+                const tvUrl = `https://www.tradingview.com/chart/?symbol=BINANCE:${sym}.P`;
+                return `<tr>
+          <td>${i + 1}</td>
+          <td><a class="symbol-link" href="${tvUrl}" target="_blank" rel="noopener">${sym}</a></td>
+          <td>${fmtPrice(t.price)}</td>
+          <td class="${changeCls}">${changeSign}${t.change_pct}%</td>
+          <td style="font-size:11px;color:#7a8599">
+            H: ${fmtPrice(t.high_24h)}<br>L: ${fmtPrice(t.low_24h)}
+          </td>
+          <td style="${frColor}">${(t.fund_rate * 100).toFixed(4)}%</td>
+          <td>${buildTags(t.tags)}</td>
+        </tr>`;
+            }).join('');
+        }
+
+        function renderCards(tokens) {
+            const cardList = document.getElementById('cardList');
+            cardList.innerHTML = tokens.map((t, i) => {
+                const changeCls = t.change_pct >= 0 ? 'price-up' : 'price-down';
+                const changeSign = t.change_pct >= 0 ? '+' : '';
+                const sym = esc(t.symbol);
+                const tvUrl = `https://www.tradingview.com/chart/?symbol=BINANCE:${sym}.P`;
+                return `<div class="token-card">
+          <div class="card-top">
+            <a class="symbol-link card-symbol" href="${tvUrl}" target="_blank">${sym}</a>
+            <span class="card-price ${changeCls}">${fmtPrice(t.price)} (${changeSign}${t.change_pct}%)</span>
+          </div>
+          <div class="card-tags">${buildTags(t.tags)}</div>
+          <div class="card-prices">
+            <span>H: ${fmtPrice(t.high_24h)}</span>
+            <span>L: ${fmtPrice(t.low_24h)}</span>
+            <span>费率: ${(t.fund_rate * 100).toFixed(4)}%</span>
+          </div>
+          <div class="card-meta"><span>#${i + 1}</span></div>
+        </div>`;
+            }).join('');
+        }
+
+        // ── 历史记录 ──
+        async function toggleHistory() {
+            const panel = document.getElementById('historyPanel');
+            historyVisible = !historyVisible;
+            if (historyVisible) {
+                panel.classList.remove('hidden');
+                try {
+                    const rows = await cachedFetch('/api/history');
+                    const list = document.getElementById('historyList');
+                    if (!rows || rows.length === 0) {
+                        list.innerHTML = '<p style="color:#5a6a80;font-size:12px;">暂无历史记录。</p>';
+                        return;
+                    }
+                    list.innerHTML = rows.map(r => `
+            <div class="hist-row" onclick="loadScan(${r.id})">
+              <span class="ht">${esc(r.scan_time || '--')}</span>
+              <span>交易对: ${r.total_symbols || 0} | 筛选: <span class="hv">${r.filtered_count || 0}</span></span>
+            </div>
+          `).join('');
+                } catch (e) { console.error(e); }
+            } else {
+                panel.classList.add('hidden');
+            }
+        }
+
+        async function loadScan(id) {
+            try {
+                const data = await cachedFetch('/api/scan/' + id);
+                currentData = data;
+                activeTagFilter = null;
+                renderData(data);
+                showToast('已加载扫描 #' + id);
+            } catch (e) { showToast('加载失败'); }
+        }
+
+        async function goLatest() {
+            try {
+                const data = await cachedFetch('/api/latest', true);
+                currentData = data;
+                activeTagFilter = null;
+                renderData(data);
+                showToast('已回到最新数据');
+            } catch (e) { showToast('加载失败'); }
+        }
+
+        function showToast(msg) {
+            const t = document.getElementById('toast');
+            t.textContent = msg;
+            t.classList.remove('hidden');
+            setTimeout(() => t.classList.add('hidden'), 1500);
+        }
+
+        // Init
+        loadLatest();
+    </script>
+</body>
+
+</html>
