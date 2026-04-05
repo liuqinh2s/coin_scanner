@@ -279,6 +279,11 @@
             color: #fff;
         }
 
+        .tag-trend {
+            background: #2196f3;
+            color: #fff;
+        }
+
         .tag-btc {
             background: #f0b90b;
             color: #0a0e17;
@@ -448,8 +453,8 @@
             <h1>🔍 合约代币扫描器</h1>
             <p class="subtitle">每15分钟扫描 · Bitget USDT永续 · 多周期趋势共振选币</p>
             <p class="filter-desc">
-                核心筛选：15m + 1H + 4H + 1D 四周期趋势同时看多（布林中轨+MACD共振）<br>
-                加分项标签（可点击筛选）：成交量异动 · 防追高 · 负资金费率 · 龙头币 · 仙人指路 · 波动充足<br>
+                默认组合：趋势共振 + 波动充足 + 未追高（点击标签可自由增减组合）<br>
+                可选标签：成交量异动 · 负资金费率 · 龙头币 · 仙人指路<br>
                 BTC大盘方向为全局条件，不可作为筛选标签
             </p>
         </header>
@@ -484,7 +489,7 @@
         <div class="actions">
             <button id="btnHistory" onclick="toggleHistory()">📋 历史记录</button>
             <button id="btnLatest" onclick="goLatest()">回到当前</button>
-            <button onclick="clearFilter()">✖ 清除筛选</button>
+            <button onclick="clearFilter()">🏠 恢复默认</button>
         </div>
 
         <div id="tagBar" class="tag-bar hidden"></div>
@@ -509,7 +514,7 @@
                 </thead>
                 <tbody id="tokenBody"></tbody>
             </table>
-            <p id="noData" class="no-data hidden">暂无符合多周期趋势共振条件的代币。</p>
+            <p id="noData" class="no-data hidden">当前标签下暂无符合条件的代币。</p>
             <div id="cardList" class="card-list"></div>
         </div>
     </div>
@@ -517,12 +522,14 @@
     <div id="toast" class="toast hidden"></div>
     <script>
         let currentData = null;
-        let activeTagFilter = null;
+        const DEFAULT_FILTER = ['趋势共振', '波动充足', '未追高'];
+        let activeTagFilter = [...DEFAULT_FILTER];
         let historyVisible = false;
         const cache = {};
 
         // 标签样式映射
         const TAG_STYLES = {
+            '趋势共振': 'tag-trend',
             '成交量异动': 'tag-volume',
             'BTC看多': 'tag-btc',
             '未追高': 'tag-safe',
@@ -603,9 +610,11 @@
             let tokens = data.tokens || [];
 
             // 应用标签筛选
-            if (activeTagFilter) {
+            if (activeTagFilter.length > 0) {
                 tokens = tokens.filter(t =>
-                    t.tags.some(tag => getTagKey(tag) === activeTagFilter)
+                    activeTagFilter.every(f =>
+                        t.tags.some(tag => getTagKey(tag) === f)
+                    )
                 );
             }
 
@@ -638,12 +647,12 @@
 
             const sorted = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
             tagBar.innerHTML = sorted.map(([key, count]) => {
-                const isActive = activeTagFilter === key ? ' active' : '';
+                const isActive = activeTagFilter.includes(key) ? ' active' : '';
                 const filterable = !NON_FILTERABLE.has(key);
                 const onclick = filterable ? `onclick="filterByTag('${esc(key)}')"` : '';
                 const disabledCls = filterable ? '' : ' disabled';
                 const title = filterable
-                    ? `title="点击筛选: ${esc(key)}"`
+                    ? `title="点击切换: ${esc(key)}"`
                     : `title="${esc(key)}（全局条件，不可筛选）"`;
                 return `<span class="tag-filter${isActive}${disabledCls}" ${onclick} ${title}>
           ${esc(key)} <span class="count">${count}</span>
@@ -652,14 +661,19 @@
         }
 
         function filterByTag(tagKey) {
-            activeTagFilter = activeTagFilter === tagKey ? null : tagKey;
+            const idx = activeTagFilter.indexOf(tagKey);
+            if (idx >= 0) {
+                activeTagFilter.splice(idx, 1);
+            } else {
+                activeTagFilter.push(tagKey);
+            }
             if (currentData) renderData(currentData);
         }
 
         function clearFilter() {
-            activeTagFilter = null;
+            activeTagFilter = [...DEFAULT_FILTER];
             if (currentData) renderData(currentData);
-            showToast('已清除筛选');
+            showToast('已恢复默认组合');
         }
 
         function buildTags(tags) {
@@ -668,9 +682,8 @@
                 const key = getTagKey(tag);
                 const filterable = isFilterable(tag);
                 const onclick = filterable
-                    ? `onclick="event.stopPropagation();filterByTag('${esc(key)}')"` : '';
-                const title = filterable
-                    ? `title="点击筛选: ${esc(key)}"` : `title="${esc(tag)}"`;
+                    ? `onclick="event.stopPropagation();filterByTag('${esc(key)}')"` : ''; const title = filterable
+                        ? `title="点击筛选: ${esc(key)}"` : `title="${esc(tag)}"`;
                 return `<span class="tag ${cls}" ${onclick} ${title}>${esc(tag)}</span>`;
             }).join('');
         }
@@ -761,7 +774,7 @@
             try {
                 const data = await cachedFetch('/api/scan/' + id);
                 currentData = data;
-                activeTagFilter = null;
+                activeTagFilter = [...DEFAULT_FILTER];
                 renderData(data);
                 showToast('已加载扫描 #' + id);
             } catch (e) { showToast('加载失败'); }
@@ -771,7 +784,7 @@
             try {
                 const data = await cachedFetch('/api/latest', true);
                 currentData = data;
-                activeTagFilter = null;
+                activeTagFilter = [...DEFAULT_FILTER];
                 renderData(data);
                 showToast('已回到最新数据');
             } catch (e) { showToast('加载失败'); }

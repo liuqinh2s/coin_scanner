@@ -2,8 +2,7 @@
 合约代币扫描器 — 扫描脚本 (GitHub Actions / 本地运行)
 
 数据源: Bitget USDT 永续合约公开 API (无需 API Key)
-核心筛选: 多周期趋势共振 (15m + 1H + 4H + 1D)
-加分项标签: 成交量异动 · BTC大盘方向 · 防追高 · 资金费率 · 龙头币 · 仙人指路 · 波动充足
+标签条件: 趋势共振(默认) · 成交量异动 · BTC大盘方向 · 防追高 · 资金费率 · 龙头币 · 仙人指路 · 波动充足
 """
 from __future__ import annotations
 
@@ -513,10 +512,13 @@ async def main():
     btc_direction = "up" if btc_up else ("down" if btc_down else "neutral")
     log.info("BTC 方向: %s", btc_direction)
 
-    # 6. 核心筛选: 多周期趋势共振
-    log.info("执行多周期趋势共振筛选...")
+    # 6. 全市场扫描，独立检测每个标签条件
+    log.info("全市场扫描，检测各标签条件...")
     result_tokens = []
     valid_count = 0
+
+    # 预计算龙头币（需要全市场数据）
+    leading = find_leading_coins(all_sym)
 
     for key in all_sym:
         if key == "BTCUSDT":
@@ -526,6 +528,9 @@ async def main():
             continue
         valid_count += 1
 
+        tags = []
+
+        # 多周期趋势共振
         try:
             trend_all_up = (
                 is_15m_trend_up(sym)
@@ -533,29 +538,40 @@ async def main():
                 and is_4h_trend_up(sym)
                 and is_1d_trend_up(sym)
             )
+            if trend_all_up:
+                tags.append("趋势共振")
         except (IndexError, KeyError, ValueError):
-            continue
-        if not trend_all_up:
-            continue
+            pass
 
-        tags = []
-
+        # 成交量异动
         anomaly_tf = detect_volume_anomaly(all_sym, key)
         if anomaly_tf:
             tags.append(f"成交量异动({anomaly_tf})")
 
+        # BTC 大盘方向
         if btc_up:
             tags.append("BTC看多")
 
+        # 防追高
         if check_anti_chase(sym):
             tags.append("未追高")
 
+        # 资金费率
         fr = fund_rates.get(key, 0)
         if fr < -0.0001:
             tags.append(f"负费率({fr * 100:.4f}%)")
 
+        # 波动充足
         if is_not_rubbish(sym):
             tags.append("波动充足")
+
+        # 龙头币
+        if key in leading:
+            tags.append("龙头币")
+
+        # 跳过没有任何标签的币
+        if not tags:
+            continue
 
         last_bar = sym["1D"]["data"][-1]
         close = float(last_bar[4])
@@ -574,13 +590,7 @@ async def main():
             "tags": tags,
         })
 
-    # 7. 龙头币
-    leading = find_leading_coins(all_sym)
-    for t in result_tokens:
-        if t["symbol"] in leading:
-            t["tags"].append("龙头币")
-
-    # 8. 仙人指路
+    # 仙人指路（需要候选列表）
     fairy = find_fairy_guide(all_sym, [t["symbol"] for t in result_tokens])
     for t in result_tokens:
         if t["symbol"] in fairy:
@@ -589,9 +599,10 @@ async def main():
     # 按标签数量排序
     result_tokens.sort(key=lambda x: len(x["tags"]), reverse=True)
 
+    trend_count = sum(1 for t in result_tokens if "趋势共振" in t["tags"])
     elapsed = round(time.time() - scan_start, 1)
-    log.info("完成: %d个交易对, %d个可分析, %d个通过筛选, 耗时%ss",
-             len(symbols), valid_count, len(result_tokens), elapsed)
+    log.info("完成: %d个交易对, %d个可分析, %d个有标签, %d个趋势共振, 耗时%ss",
+             len(symbols), valid_count, len(result_tokens), trend_count, elapsed)
 
     # 9. 写入结果
     result = {
