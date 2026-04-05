@@ -222,6 +222,34 @@
             text-decoration: underline;
         }
 
+        .symbol-actions {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .copy-btn,
+        .bitget-link {
+            display: inline-block;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 3px;
+            cursor: pointer;
+            border: 1px solid #2a3a50;
+            background: #1e2a3a;
+            color: #7a8599;
+            text-decoration: none;
+            transition: all .2s;
+            white-space: nowrap;
+        }
+
+        .copy-btn:hover,
+        .bitget-link:hover {
+            background: #f0b90b;
+            color: #0a0e17;
+            border-color: #f0b90b;
+        }
+
         .price-up {
             color: #00c853;
         }
@@ -655,9 +683,16 @@
                 const frColor = t.fund_rate < 0 ? 'color:#00bcd4' : t.fund_rate > 0.0003 ? 'color:#ff4d4f' : '';
                 const sym = esc(t.symbol);
                 const tvUrl = `https://www.tradingview.com/chart/?symbol=BITGET:${sym}.P`;
+                const bgUrl = `https://www.bitget.com/futures/usdt/${sym}`;
                 return `<tr>
           <td>${i + 1}</td>
-          <td><a class="symbol-link" href="${tvUrl}" target="_blank" rel="noopener">${sym}</a></td>
+          <td>
+            <span class="symbol-actions">
+              <a class="symbol-link" href="${tvUrl}" target="_blank" rel="noopener">${sym}</a>
+              <span class="copy-btn" onclick="copyText('${sym}')">复制</span>
+              <a class="bitget-link" href="${bgUrl}" target="_blank" rel="noopener">Bitget</a>
+            </span>
+          </td>
           <td>${fmtPrice(t.price)}</td>
           <td class="${changeCls}">${changeSign}${t.change_pct}%</td>
           <td style="font-size:11px;color:#7a8599">
@@ -676,9 +711,14 @@
                 const changeSign = t.change_pct >= 0 ? '+' : '';
                 const sym = esc(t.symbol);
                 const tvUrl = `https://www.tradingview.com/chart/?symbol=BITGET:${sym}.P`;
+                const bgUrl = `https://www.bitget.com/futures/usdt/${sym}`;
                 return `<div class="token-card">
           <div class="card-top">
-            <a class="symbol-link card-symbol" href="${tvUrl}" target="_blank">${sym}</a>
+            <span class="symbol-actions">
+              <a class="symbol-link card-symbol" href="${tvUrl}" target="_blank">${sym}</a>
+              <span class="copy-btn" onclick="copyText('${sym}')">复制</span>
+              <a class="bitget-link" href="${bgUrl}" target="_blank">Bitget</a>
+            </span>
             <span class="card-price ${changeCls}">${fmtPrice(t.price)} (${changeSign}${t.change_pct}%)</span>
           </div>
           <div class="card-tags">${buildTags(t.tags)}</div>
@@ -735,6 +775,18 @@
                 renderData(data);
                 showToast('已回到最新数据');
             } catch (e) { showToast('加载失败'); }
+        }
+
+        function copyText(text) {
+            navigator.clipboard.writeText(text).then(() => showToast('已复制: ' + text)).catch(() => {
+                const ta = document.createElement('textarea');
+                ta.value = text;
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand('copy');
+                document.body.removeChild(ta);
+                showToast('已复制: ' + text);
+            });
         }
 
         function showToast(msg) {
