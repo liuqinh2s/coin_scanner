@@ -1,7 +1,7 @@
 """
 合约代币扫描器 — 扫描脚本 (GitHub Actions / 本地运行)
 
-数据源: Binance USDT 永续合约公开 API (无需 API Key)
+数据源: Bitget USDT 永续合约公开 API (无需 API Key)
 核心筛选: 多周期趋势共振 (15m + 1H + 4H + 1D)
 加分项标签: 成交量异动 · BTC大盘方向 · 防追高 · 资金费率 · 龙头币 · 仙人指路 · 波动充足
 """
@@ -12,6 +12,7 @@ import json
 import logging
 import math
 import os
+import re
 import sys
 import time
 from datetime import datetime, timezone, timedelta
@@ -24,8 +25,8 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
 CONFIG_PATH = ROOT / "config.local.json"
 
-BINANCE_FAPI = "https://fapi.binance.com"
-TF_MAP = {"1D": "1d", "4H": "4h", "1H": "1h", "15m": "15m"}
+BITGET_API = "https://api.bitget.com"
+PRODUCT_TYPE = "USDT-FUTURES"
 CYCLES = ["1D", "4H", "1H", "15m"]
 
 # ── 日志 ──
@@ -36,17 +37,21 @@ logging.basicConfig(
 )
 log = logging.getLogger("scan")
 
-# ── 本地代理配置 ──
-proxy_url: str | None = None
-try:
-    if CONFIG_PATH.exists():
-        cfg = json.loads(CONFIG_PATH.read_text())
-        p = cfg.get("proxy", {})
-        if p.get("enabled"):
-            proxy_url = f"http://{p['host']}:{p['port']}"
-            log.info("已启用代理: %s", proxy_url)
-except Exception:
-    pass
+# ── 代理配置 ──
+# 优先级: 环境变量 PROXY_URL > config.local.json > 无代理
+proxy_url: str | None = os.environ.get("PROXY_URL")
+if proxy_url:
+    log.info("已启用代理 (环境变量): %s", proxy_url)
+else:
+    try:
+        if CONFIG_PATH.exists():
+            cfg = json.loads(CONFIG_PATH.read_text())
+            p = cfg.get("proxy", {})
+            if p.get("enabled"):
+                proxy_url = f"http://{p['host']}:{p['port']}"
+                log.info("已启用代理 (本地配置): %s", proxy_url)
+    except Exception:
+        pass
 
 
 # ══════════════════════════════════════════════════════════════
@@ -68,40 +73,43 @@ async def fetch_json(session: aiohttp.ClientSession, url: str) -> any:
 
 async def fetch_all_symbols(session: aiohttp.ClientSession) -> list[str]:
     """获取所有 USDT 永续合约交易对"""
-    data = await fetch_json(session, f"{BINANCE_FAPI}/fapi/v1/exchangeInfo")
-    if not data or "symbols" not in data:
-        log.error("exchangeInfo 返回异常: %s", str(data)[:200] if data else "None")
+    url = f"{BITGET_API}/api/v2/mix/market/tickers?productType={PRODUCT_TYPE}"
+    data = await fetch_json(session, url)
+    if not data or data.get("code") != "00000" or not data.get("data"):
+        log.error("tickers 返回异常: %s", str(data)[:200] if data else "None")
         return []
-    symbols = [
-        s["symbol"] for s in data["symbols"]
-        if s.get("contractType") == "PERPETUAL"
-        and s.get("quoteAsset") == "USDT"
-        and s.get("status") == "TRADING"
-    ]
+    symbols = [item["symbol"] for item in data["data"]]
     log.info("获取到 %d 个 USDT 永续合约", len(symbols))
     return symbols
 
 
-async def fetch_klines(session: aiohttp.ClientSession, symbol: str, interval: str, limit: int = 200):
+async def fetch_klines(session: aiohttp.ClientSession, symbol: str, granularity: str, limit: int = 200):
     """获取单个币种单个周期的 K 线"""
-    url = f"{BINANCE_FAPI}/fapi/v1/klines?symbol={symbol}&interval={interval}&limit={limit}"
+    url = (f"{BITGET_API}/api/v2/mix/market/candles"
+           f"?symbol={symbol}&productType={PRODUCT_TYPE}"
+           f"&granularity={granularity}&limit={limit}")
     data = await fetch_json(session, url)
-    if not isinstance(data, list):
-        return symbol, interval, []
-    # 统一格式: [ts, open, high, low, close, vol, quoteVol]
-    rows = [[k[0], k[1], k[2], k[3], k[4], k[5], k[7]] for k in data]
-    return symbol, interval, rows
+    if not data or data.get("code") != "00000" or not data.get("data"):
+        return symbol, granularity, []
+    # Bitget 返回格式: [[ts, o, h, l, c, vol, quoteVol], ...]
+    return symbol, granularity, data["data"]
 
 
-async def fetch_fund_rates(session: aiohttp.ClientSession) -> dict[str, float]:
-    """批量获取资金费率"""
-    data = await fetch_json(session, f"{BINANCE_FAPI}/fapi/v1/premiumIndex")
-    if not isinstance(data, list):
-        return {}
-    return {item["symbol"]: float(item.get("lastFundingRate", 0)) for item in data}
+async def fetch_fund_rates(session: aiohttp.ClientSession, symbols: list[str]) -> dict[str, float]:
+    """逐个获取当前资金费率（Bitget 没有批量接口）"""
+    sem = asyncio.Semaphore(10)
+    result: dict[str, float] = {}
 
+    async def _fetch_one(sym):
+        async with sem:
+            url = (f"{BITGET_API}/api/v2/mix/market/current-fund-rate"
+                   f"?symbol={sym}&productType={PRODUCT_TYPE}")
+            data = await fetch_json(session, url)
+            if data and data.get("code") == "00000" and data.get("data"):
+                result[sym] = float(data["data"].get("fundingRate", 0))
 
-INV_TF = {v: k for k, v in TF_MAP.items()}
+    await asyncio.gather(*[_fetch_one(s) for s in symbols], return_exceptions=True)
+    return result
 
 
 async def fetch_all_data(session: aiohttp.ClientSession, symbols: list[str], max_concurrent: int = 50) -> dict:
@@ -109,15 +117,15 @@ async def fetch_all_data(session: aiohttp.ClientSession, symbols: list[str], max
     all_sym: dict = {}
     sem = asyncio.Semaphore(max_concurrent)
 
-    async def _limited(sym, interval):
+    async def _limited(sym, granularity):
         async with sem:
-            return await fetch_klines(session, sym, interval)
+            return await fetch_klines(session, sym, granularity)
 
     # 一次性创建所有任务 (symbols × cycles)，全部并发
     tasks = []
     for sym in symbols:
         for cycle in CYCLES:
-            tasks.append(_limited(sym, TF_MAP[cycle]))
+            tasks.append(_limited(sym, cycle))
 
     total = len(tasks)
     log.info("开始并发获取 K 线: %d 个请求, 并发上限 %d", total, max_concurrent)
@@ -126,10 +134,9 @@ async def fetch_all_data(session: aiohttp.ClientSession, symbols: list[str], max
 
     for r in results:
         if isinstance(r, tuple) and len(r) == 3:
-            sym, interval, data = r
+            sym, granularity, data = r
             if data:
-                tf = INV_TF.get(interval, interval)
-                all_sym.setdefault(sym, {})[tf] = {"data": data}
+                all_sym.setdefault(sym, {})[granularity] = {"data": data}
 
     log.info("K 线获取完成: %d 个币种有数据", len(all_sym))
     return all_sym
@@ -483,18 +490,18 @@ async def main():
     headers = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36"}
     async with aiohttp.ClientSession(headers=headers) as session:
         # 1. 获取所有交易对
-        log.info("获取 Binance USDT 永续合约交易对...")
+        log.info("获取 Bitget USDT 永续合约交易对...")
         symbols = await fetch_all_symbols(session)
         if not symbols:
             log.error("无法获取交易对，退出")
             sys.exit(1)
 
         # 2. 高并发获取 K 线数据
-        all_sym = await fetch_all_data(session, symbols, max_concurrent=50)
+        all_sym = await fetch_all_data(session, symbols, max_concurrent=10)
 
         # 3. 获取资金费率
         log.info("获取资金费率...")
-        fund_rates = await fetch_fund_rates(session)
+        fund_rates = await fetch_fund_rates(session, symbols)
 
     # 4. 计算技术指标
     log.info("计算技术指标...")
@@ -605,7 +612,6 @@ async def main():
     log.info("写入 %s", scan_file)
 
     # 清理 7 天前的数据
-    import re
     cutoff = time.time() - 7 * 86400
     cleaned = 0
     for f in DATA_DIR.glob("*.json"):

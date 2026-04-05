@@ -418,7 +418,7 @@
     <div id="app">
         <header>
             <h1>🔍 合约代币扫描器</h1>
-            <p class="subtitle">每15分钟扫描 · Binance USDT永续 · 多周期趋势共振选币</p>
+            <p class="subtitle">每15分钟扫描 · Bitget USDT永续 · 多周期趋势共振选币</p>
             <p class="filter-desc">
                 核心筛选：15m + 1H + 4H + 1D 四周期趋势同时看多（布林中轨+MACD共振）<br>
                 加分项标签（可点击筛选）：成交量异动 · 防追高 · 负资金费率 · 龙头币 · 仙人指路 · 波动充足<br>
@@ -654,7 +654,7 @@
                 const changeSign = t.change_pct >= 0 ? '+' : '';
                 const frColor = t.fund_rate < 0 ? 'color:#00bcd4' : t.fund_rate > 0.0003 ? 'color:#ff4d4f' : '';
                 const sym = esc(t.symbol);
-                const tvUrl = `https://www.tradingview.com/chart/?symbol=BINANCE:${sym}.P`;
+                const tvUrl = `https://www.tradingview.com/chart/?symbol=BITGET:${sym}.P`;
                 return `<tr>
           <td>${i + 1}</td>
           <td><a class="symbol-link" href="${tvUrl}" target="_blank" rel="noopener">${sym}</a></td>
@@ -675,7 +675,7 @@
                 const changeCls = t.change_pct >= 0 ? 'price-up' : 'price-down';
                 const changeSign = t.change_pct >= 0 ? '+' : '';
                 const sym = esc(t.symbol);
-                const tvUrl = `https://www.tradingview.com/chart/?symbol=BINANCE:${sym}.P`;
+                const tvUrl = `https://www.tradingview.com/chart/?symbol=BITGET:${sym}.P`;
                 return `<div class="token-card">
           <div class="card-top">
             <a class="symbol-link card-symbol" href="${tvUrl}" target="_blank">${sym}</a>

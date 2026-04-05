@@ -1,6 +1,6 @@
 # 合约代币扫描器
 
-Binance USDT 永续合约多周期趋势共振选币工具，静态网站通过 GitHub Pages 部署。
+Bitget USDT 永续合约多周期趋势共振选币工具，静态网站通过 GitHub Pages 部署。
 
 ## 架构
 
