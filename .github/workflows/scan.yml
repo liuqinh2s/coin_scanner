@@ -1,8 +1,6 @@
 name: Contract Token Scan
 
 on:
-  schedule:
-    - cron: '*/15 * * * *'   # 每15分钟
   workflow_dispatch:          # 手动触发
 
 permissions:
