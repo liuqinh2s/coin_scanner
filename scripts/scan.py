@@ -54,15 +54,15 @@ except Exception:
 # ══════════════════════════════════════════════════════════════
 
 async def fetch_json(session: aiohttp.ClientSession, url: str) -> any:
-    for attempt in range(3):
+    for attempt in range(5):
         try:
-            async with session.get(url, proxy=proxy_url, timeout=aiohttp.ClientTimeout(total=15)) as resp:
-                return await resp.json()
+            async with session.get(url, proxy=proxy_url, timeout=aiohttp.ClientTimeout(total=20)) as resp:
+                if resp.status == 200:
+                    return await resp.json()
+                log.warning("HTTP %d: %s", resp.status, url[:80])
         except Exception as e:
-            if attempt < 2:
-                await asyncio.sleep(1)
-            else:
-                log.debug("请求失败 %s: %s", url[:80], e)
+            log.warning("请求失败 (%d/5) %s: %s", attempt + 1, url[:60], e)
+        await asyncio.sleep(2 * (attempt + 1))
     return None
 
 
@@ -70,6 +70,7 @@ async def fetch_all_symbols(session: aiohttp.ClientSession) -> list[str]:
     """获取所有 USDT 永续合约交易对"""
     data = await fetch_json(session, f"{BINANCE_FAPI}/fapi/v1/exchangeInfo")
     if not data or "symbols" not in data:
+        log.error("exchangeInfo 返回异常: %s", str(data)[:200] if data else "None")
         return []
     symbols = [
         s["symbol"] for s in data["symbols"]
@@ -479,7 +480,8 @@ async def main():
     scan_time = datetime.now(bj_tz).strftime("%Y-%m-%d %H:%M:%S")
     log.info("========== SCAN START: %s ==========", scan_time)
 
-    async with aiohttp.ClientSession() as session:
+    headers = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36"}
+    async with aiohttp.ClientSession(headers=headers) as session:
         # 1. 获取所有交易对
         log.info("获取 Binance USDT 永续合约交易对...")
         symbols = await fetch_all_symbols(session)
