@@ -443,6 +443,18 @@ def find_fairy_guide(all_sym, candidates) -> set[str]:
     return result
 
 
+# ── 小成交量 + 不错涨幅 ──
+
+def is_low_vol_good_move(sym) -> bool:
+    """日线最高价 > 开盘价×1.2 且成交额 < 600万"""
+    try:
+        bar = sym["1D"]["data"][-1]
+        high, open_p, quote_vol = float(bar[2]), float(bar[1]), float(bar[6])
+        return high > open_p * 1.2 and quote_vol < 6_000_000
+    except (IndexError, KeyError, ValueError):
+        return False
+
+
 # ── 波动充足 ──
 
 def is_not_rubbish(sym) -> bool:
@@ -568,6 +580,10 @@ async def main():
         # 龙头币
         if key in leading:
             tags.append("龙头币")
+
+        # 小成交量+不错涨幅
+        if is_low_vol_good_move(sym):
+            tags.append("小量大涨")
 
         # 跳过没有任何标签的币
         if not tags:
