@@ -2,7 +2,8 @@
 合约代币扫描器 — 扫描脚本 (GitHub Actions / 本地运行)
 
 数据源: Bitget USDT 永续合约公开 API (无需 API Key)
-标签条件: 趋势共振(默认) · 成交量异动 · BTC大盘方向 · 防追高 · 资金费率 · 龙头币 · 仙人指路 · 波动充足
+标签条件: 趋势共振(默认) · 成交量异动 · BTC大盘方向 · 防追高 · 资金费率
+         · 龙头币 · 仙人指路 · 波动充足 · 小量大涨 · 盘整突破
 """
 from __future__ import annotations
 
@@ -186,15 +187,62 @@ def calc_macd(closes: list[float], short_span=12, long_span=26, signal_span=9):
     return {"macdLine": macd_line, "signalLine": signal_line}
 
 
+def calc_rsi(closes: list[float], period: int = 14) -> list[float]:
+    if len(closes) < period + 1:
+        return [float("nan")] * len(closes)
+    result = [float("nan")] * period
+    gains, losses = 0.0, 0.0
+    for i in range(1, period + 1):
+        diff = closes[i] - closes[i - 1]
+        if diff > 0:
+            gains += diff
+        else:
+            losses -= diff
+    avg_gain = gains / period
+    avg_loss = losses / period
+    rs = avg_gain / avg_loss if avg_loss != 0 else float("inf")
+    result.append(100 - 100 / (1 + rs))
+    for i in range(period + 1, len(closes)):
+        diff = closes[i] - closes[i - 1]
+        gain = diff if diff > 0 else 0
+        loss = -diff if diff < 0 else 0
+        avg_gain = (avg_gain * (period - 1) + gain) / period
+        avg_loss = (avg_loss * (period - 1) + loss) / period
+        rs = avg_gain / avg_loss if avg_loss != 0 else float("inf")
+        result.append(100 - 100 / (1 + rs))
+    return result
+
+
+def calc_volume_osc(data: list, short: int = 5, long: int = 20) -> list[float]:
+    """成交量振荡器: (短期均量 - 长期均量) / 长期均量 * 100"""
+    vols = [float(x[6]) for x in data]
+    short_ma = sma(vols, short)
+    long_ma = sma(vols, long)
+    result = []
+    for s, l in zip(short_ma, long_ma):
+        if math.isnan(s) or math.isnan(l) or l == 0:
+            result.append(float("nan"))
+        else:
+            result.append((s - l) / l * 100)
+    return result
+
+
 def compute_indicators(all_sym: dict):
     for symbol in list(all_sym.keys()):
         for cycle in list(all_sym[symbol].keys()):
             try:
-                closes = [float(x[4]) for x in all_sym[symbol][cycle]["data"]]
+                data = all_sym[symbol][cycle]["data"]
+                closes = [float(x[4]) for x in data]
                 if len(closes) < 26:
                     continue
                 all_sym[symbol][cycle]["bolling"] = calc_bollinger(closes)
                 all_sym[symbol][cycle]["macd"] = calc_macd(closes)
+                # 盘整放量突破所需指标 (仅 1H 周期且数据充足时计算)
+                if cycle == "1H" and len(closes) >= 200:
+                    for w in (30, 60, 120, 160, 200):
+                        all_sym[symbol][cycle][f"ma{w}"] = sma(closes, w)
+                    all_sym[symbol][cycle]["rsi"] = calc_rsi(closes)
+                    all_sym[symbol][cycle]["volume_osc"] = calc_volume_osc(data)
             except (KeyError, IndexError, ValueError):
                 pass
 
@@ -455,6 +503,108 @@ def is_low_vol_good_move(sym) -> bool:
         return False
 
 
+# ── 盘整放量突破 ──
+
+def detect_consolidation_breakout(sym: dict, cycle: str = "1H") -> bool:
+    """
+    检测盘整初期放量突破：均线收敛 → 放量 → 突破新高
+
+    条件：
+    1. 涨幅适中（1%~6%），收盘站上所有均线，实体 > 上影线
+    2. 成交量放量（volume_osc > 40%，或 > 15% 且均线多头排列）
+    3. 收盘创近 120 根 K 线新高，且高于前 3 根最高价
+    4. 均线收敛（最大最小均线差 < 2.8%）
+    5. RSI 在 58~80
+    6. 回溯 10 根 K 线，每根均线宽度 < 3.5% 且 RSI 在 38~82
+    """
+    try:
+        c = sym.get(cycle)
+        if not c:
+            return False
+
+        data = c.get("data", [])
+        rsi = c.get("rsi", [])
+        vol_osc = c.get("volume_osc", [])
+
+        if len(data) < 200 or len(rsi) < 12 or len(vol_osc) < 2:
+            return False
+
+        ma_keys = ["ma30", "ma60", "ma120", "ma160", "ma200"]
+        for k in ma_keys:
+            if k not in c or len(c[k]) < 12:
+                return False
+
+        close = float(data[-1][4])
+        open_ = float(data[-1][1])
+        high = float(data[-1][2])
+
+        # 条件 1：涨幅 1%~6%，站上所有均线，实体 > 上影线
+        zf = (close - open_) / open_ if open_ > 0 else 0
+        ma_values = [c[k][-1] for k in ma_keys]
+        valid_ma = [v for v in ma_values if v is not None and v == v]
+        if len(valid_ma) < 5:
+            return False
+        ma_max = max(valid_ma)
+        ma_min = min(valid_ma)
+        if not (0.01 < zf < 0.06):
+            return False
+        if close <= ma_max:
+            return False
+        if (close - open_) <= (high - close):
+            return False
+
+        # 条件 2：放量
+        cur_vol_osc = vol_osc[-1]
+        if math.isnan(cur_vol_osc):
+            return False
+        ma30_val, ma60_val = c["ma30"][-1], c["ma60"][-1]
+        ma120_val, ma200_val = c["ma120"][-1], c["ma200"][-1]
+        bullish_aligned = (
+            ma30_val and ma60_val and ma120_val and ma200_val
+            and ma30_val > ma60_val > ma120_val > ma200_val
+        )
+        if not (cur_vol_osc > 40 or (cur_vol_osc > 15 and bullish_aligned)):
+            return False
+
+        # 条件 3：创 120 根 K 线新高
+        recent_highs = [float(data[i][2]) for i in range(-4, -1)]
+        closes_120 = [float(data[i][4]) for i in range(-121, -1)]
+        if not closes_120:
+            return False
+        if close <= max(closes_120):
+            return False
+        if not all(close > h for h in recent_highs):
+            return False
+
+        # 条件 4：均线收敛 < 2.8%
+        if ma_min <= 0:
+            return False
+        if (ma_max - ma_min) / ma_min >= 0.028:
+            return False
+
+        # 条件 5：RSI 58~80
+        cur_rsi = rsi[-1]
+        if math.isnan(cur_rsi) or not (58 < cur_rsi < 80):
+            return False
+
+        # 条件 6：回溯 10 根 K 线，均线宽度 < 3.5% 且 RSI 38~82
+        for i in range(2, 11):
+            i_ma_values = [c[k][-i] for k in ma_keys]
+            i_valid = [v for v in i_ma_values if v is not None and v == v]
+            if len(i_valid) < 5:
+                return False
+            i_max, i_min = max(i_valid), min(i_valid)
+            if i_min <= 0 or (i_max - i_min) / i_max >= 0.035:
+                return False
+            if len(rsi) >= i and (math.isnan(rsi[-i]) or not (38 < rsi[-i] < 82)):
+                return False
+
+        return True
+
+    except (KeyError, IndexError, ValueError, TypeError):
+        return False
+
+
 # ── 波动充足 ──
 
 def is_not_rubbish(sym) -> bool:
@@ -584,6 +734,10 @@ async def main():
         # 小成交量+不错涨幅
         if is_low_vol_good_move(sym):
             tags.append("小量大涨")
+
+        # 盘整放量突破
+        if detect_consolidation_breakout(sym, "1H"):
+            tags.append("盘整突破")
 
         # 跳过没有任何标签的币
         if not tags:

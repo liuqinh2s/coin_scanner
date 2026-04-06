@@ -5,8 +5,8 @@ Bitget USDT 永续合约多周期趋势共振选币工具，静态网站通过 G
 ## 架构
 
 与 [token_scanner](https://github.com/liuqinh2s/token_scanner) 相同：
-- GitHub Actions 定时任务（每 15 分钟）触发 `scripts/scan.js`
-- `scripts/build.js` 将扫描数据整理到 `site/data/`，生成前端所需的静态文件
+- GitHub Actions 定时任务（每 15 分钟）触发 `scripts/scan.py`
+- `scripts/build.py` 将扫描数据整理到 `site/data/`，生成前端所需的静态文件
 - GitHub Pages 自动部署 `site/` 目录
 
 ## 选币策略
@@ -22,6 +22,8 @@ Bitget USDT 永续合约多周期趋势共振选币工具，静态网站通过 G
 - 龙头币（近5天涨幅>20%）
 - 仙人指路形态
 - 波动充足
+- 小量大涨（日线最高价>开盘价×1.2 且成交额<600万）
+- 盘整突破（1H 均线收敛→放量→突破120根K线新高，RSI 58~80）
 
 ## 项目结构
 
@@ -40,7 +42,7 @@ Bitget USDT 永续合约多周期趋势共振选币工具，静态网站通过 G
 │       ├── latest.json
 │       ├── history.json
 │       └── scans/
-└── package.json
+└── requirements.txt
 ```
 
 ## 本地开发

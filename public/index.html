@@ -319,6 +319,16 @@
             color: #fff;
         }
 
+        .tag-lowvol {
+            background: #78909c;
+            color: #fff;
+        }
+
+        .tag-breakout {
+            background: #d50000;
+            color: #fff;
+        }
+
         .no-data {
             text-align: center;
             padding: 40px;
@@ -547,7 +557,7 @@
             <p class="subtitle">每15分钟扫描 · Bitget USDT永续 · 多周期趋势共振选币</p>
             <p class="filter-desc">
                 默认组合：趋势共振 + 波动充足 + 未追高（点击标签可自由增减组合）<br>
-                可选标签：成交量异动 · 负资金费率 · 龙头币 · 仙人指路<br>
+                可选标签：成交量异动 · 负资金费率 · 龙头币 · 仙人指路 · 小量大涨 · 盘整突破<br>
                 BTC大盘方向为全局条件，不可作为筛选标签
             </p>
         </header>
@@ -638,6 +648,8 @@
             '龙头币': 'tag-leading',
             '仙人指路': 'tag-fairy',
             '波动充足': 'tag-volatile',
+            '小量大涨': 'tag-lowvol',
+            '盘整突破': 'tag-breakout',
         };
 
         // 不支持点击筛选的标签（非筛币条件）
