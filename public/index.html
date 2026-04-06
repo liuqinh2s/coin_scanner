@@ -596,7 +596,7 @@
         </div>
 
         <div class="search-box">
-            <input type="text" id="searchInput" placeholder="搜索代币名称（如 BTC、ETH）…" aria-label="搜索代币名称">
+            <input type="text" id="searchInput" placeholder="搜索代币名称或标签（如 BTC、盘整突破）…" aria-label="搜索代币名称或标签">
             <button onclick="doSearch()">🔍 搜索历史</button>
             <button id="btnClearSearch" onclick="clearSearch()" class="hidden">✕ 清除</button>
         </div>
@@ -943,8 +943,9 @@
         }
 
         async function doSearch() {
-            const query = document.getElementById('searchInput').value.trim().toUpperCase();
-            if (!query) { showToast('请输入代币名称'); return; }
+            const query = document.getElementById('searchInput').value.trim();
+            if (!query) { showToast('请输入代币名称或标签'); return; }
+            const queryUpper = query.toUpperCase();
 
             const panel = document.getElementById('searchResults');
             panel.classList.remove('hidden');
@@ -954,14 +955,17 @@
                 const index = await loadSearchIndex();
                 const results = [];
                 for (const [symbol, records] of Object.entries(index)) {
-                    if (!symbol.toUpperCase().includes(query)) continue;
+                    const symbolMatch = symbol.toUpperCase().includes(queryUpper);
                     for (const r of records) {
-                        results.push({ symbol, ...r });
+                        const tagMatch = !symbolMatch && (r.tags || []).some(t => t.includes(query));
+                        if (symbolMatch || tagMatch) {
+                            results.push({ symbol, ...r });
+                        }
                     }
                 }
 
                 if (results.length === 0) {
-                    panel.innerHTML = `<h3>搜索结果: "${esc(query)}"</h3><p class="search-loading">未在任何历史记录中找到匹配的代币。</p>`;
+                    panel.innerHTML = `<h3>搜索结果: "${esc(query)}"</h3><p class="search-loading">未在任何历史记录中找到匹配的代币或标签。</p>`;
                 } else {
                     let html = `<h3>搜索结果: "${esc(query)}" — 共 ${results.length} 条记录</h3>`;
                     html += results.map(r => {
