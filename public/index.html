@@ -918,10 +918,17 @@
 
         // ── 搜索功能 ──
         let searchActive = false;
+        let searchIndex = null;
 
         document.getElementById('searchInput').addEventListener('keydown', function (e) {
             if (e.key === 'Enter') doSearch();
         });
+
+        async function loadSearchIndex() {
+            if (searchIndex) return searchIndex;
+            searchIndex = await cachedFetch('/api/search-index');
+            return searchIndex;
+        }
 
         async function doSearch() {
             const query = document.getElementById('searchInput').value.trim().toUpperCase();
@@ -929,27 +936,15 @@
 
             const panel = document.getElementById('searchResults');
             panel.classList.remove('hidden');
-            panel.innerHTML = '<p class="search-loading">正在搜索所有历史记录…</p>';
+            panel.innerHTML = '<p class="search-loading">正在加载搜索索引…</p>';
 
             try {
-                const history = await cachedFetch('/api/history');
-                if (!history || history.length === 0) {
-                    panel.innerHTML = '<h3>搜索结果</h3><p class="search-loading">暂无历史数据。</p>';
-                    return;
-                }
-
+                const index = await loadSearchIndex();
                 const results = [];
-                for (const row of history) {
-                    const id = row.id;
-                    const scanData = await cachedFetch('/api/scan/' + id);
-                    const tokens = scanData.tokens || [];
-                    const matched = tokens.filter(t => t.symbol.toUpperCase().includes(query));
-                    for (const t of matched) {
-                        results.push({
-                            scanTime: scanData.scanTime || row.scan_time,
-                            scanId: row.id,
-                            token: t,
-                        });
+                for (const [symbol, records] of Object.entries(index)) {
+                    if (!symbol.toUpperCase().includes(query)) continue;
+                    for (const r of records) {
+                        results.push({ symbol, ...r });
                     }
                 }
 
@@ -958,14 +953,13 @@
                 } else {
                     let html = `<h3>搜索结果: "${esc(query)}" — 共 ${results.length} 条记录</h3>`;
                     html += results.map(r => {
-                        const t = r.token;
-                        const changeCls = t.change_pct >= 0 ? 'price-up' : 'price-down';
-                        const changeSign = t.change_pct >= 0 ? '+' : '';
+                        const changeCls = r.change_pct >= 0 ? 'price-up' : 'price-down';
+                        const changeSign = r.change_pct >= 0 ? '+' : '';
                         return `<div class="search-result-item" onclick="loadScan(${r.scanId})">
-                            <span class="sr-symbol">${esc(t.symbol)}</span>
+                            <span class="sr-symbol">${esc(r.symbol)}</span>
                             <span class="sr-time">${esc(r.scanTime)}</span>
-                            <span class="sr-price ${changeCls}">${fmtPrice(t.price)} (${changeSign}${t.change_pct}%)</span>
-                            <div class="sr-tags">${buildTags(t.tags)}</div>
+                            <span class="sr-price ${changeCls}">${fmtPrice(r.price)} (${changeSign}${r.change_pct}%)</span>
+                            <div class="sr-tags">${buildTags(r.tags)}</div>
                         </div>`;
                     }).join('');
                     panel.innerHTML = html;

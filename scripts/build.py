@@ -53,7 +53,29 @@ else:
         (SCANS_DIR / f"{idx}.json").write_text(json.dumps(data))
 
     (SITE_DATA_DIR / "history.json").write_text(json.dumps(history))
-    print(f"[BUILD] 生成 {len(scan_files)} 次扫描数据")
+
+    # search-index.json — 按代币聚合所有历史出现记录
+    symbol_map = {}  # symbol -> [{scanTime, scanId, price, change_pct, tags, ...}]
+    for idx, f in enumerate(scan_files):
+        data = json.loads(f.read_text())
+        scan_time = data.get("scanTime", "")
+        for t in data.get("tokens", []):
+            sym = t.get("symbol", "")
+            if not sym:
+                continue
+            symbol_map.setdefault(sym, []).append({
+                "scanId": idx,
+                "scanTime": scan_time,
+                "price": t.get("price", 0),
+                "change_pct": t.get("change_pct", 0),
+                "high_24h": t.get("high_24h", 0),
+                "low_24h": t.get("low_24h", 0),
+                "fund_rate": t.get("fund_rate", 0),
+                "tags": t.get("tags", []),
+            })
+    (SITE_DATA_DIR / "search-index.json").write_text(json.dumps(symbol_map))
+
+    print(f"[BUILD] 生成 {len(scan_files)} 次扫描数据, 搜索索引含 {len(symbol_map)} 个代币")
 
 # 复制并修补 index.html — 将 API 路径重写为静态文件路径
 html = (PUBLIC_DIR / "index.html").read_text()
@@ -71,6 +93,11 @@ html = re.sub(
 html = re.sub(
     r"cachedFetch\('/api/scan/' \+ id\)",
     "cachedFetch('data/scans/' + id + '.json')",
+    html,
+)
+html = re.sub(
+    r"cachedFetch\('/api/search-index'\)",
+    "cachedFetch('data/search-index.json')",
     html,
 )
 
