@@ -106,7 +106,11 @@ async def fetch_fund_rates(session: aiohttp.ClientSession, symbols: list[str]) -
                    f"?symbol={sym}&productType={PRODUCT_TYPE}")
             data = await fetch_json(session, url)
             if data and data.get("code") == "00000" and data.get("data"):
-                result[sym] = float(data["data"].get("fundingRate", 0))
+                d = data["data"]
+                # API 返回的是列表，取第一个元素
+                if isinstance(d, list) and len(d) > 0:
+                    d = d[0]
+                result[sym] = float(d.get("fundingRate", 0))
 
     await asyncio.gather(*[_fetch_one(s) for s in symbols], return_exceptions=True)
     return result

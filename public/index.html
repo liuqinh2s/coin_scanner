@@ -507,9 +507,10 @@
             .card-top {
                 display: flex;
                 justify-content: space-between;
-                align-items: center;
+                align-items: baseline;
                 margin-bottom: 8px;
-                gap: 12px;
+                gap: 8px;
+                flex-wrap: wrap;
             }
 
             .card-symbol {
@@ -518,11 +519,24 @@
                 color: #8ecdf7;
             }
 
-            .card-price {
+            .card-price-wrap {
+                display: flex;
+                align-items: baseline;
+                gap: 6px;
+                margin-left: auto;
+                font-variant-numeric: tabular-nums;
+            }
+
+            .card-price-val {
                 font-size: 15px;
                 font-weight: 600;
-                text-align: right;
-                flex-shrink: 0;
+                white-space: nowrap;
+            }
+
+            .card-change {
+                font-size: 12px;
+                font-weight: 600;
+                white-space: nowrap;
             }
 
             .card-tags {
@@ -545,6 +559,7 @@
                 color: #7a8599;
                 margin-top: 6px;
                 font-variant-numeric: tabular-nums;
+                flex-wrap: wrap;
             }
         }
     </style>
@@ -851,7 +866,10 @@
               <span class="copy-btn" onclick="copyText('${sym}')">复制</span>
               <a class="bitget-link" href="${bgUrl}" target="_blank">Bitget</a>
             </span>
-            <span class="card-price ${changeCls}">${fmtPrice(t.price)} (${changeSign}${t.change_pct}%)</span>
+            <span class="card-price-wrap">
+              <span class="card-price-val">${fmtPrice(t.price)}</span>
+              <span class="card-change ${changeCls}">${changeSign}${t.change_pct}%</span>
+            </span>
           </div>
           <div class="card-tags">${buildTags(t.tags)}</div>
           <div class="card-prices">
