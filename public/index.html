@@ -996,8 +996,27 @@
             searchActive = false;
         }
 
+        // ── 自动刷新 ──
+        let autoRefreshTimer = null;
+        const AUTO_REFRESH_INTERVAL = 60 * 1000; // 每60秒检查一次
+
+        function startAutoRefresh() {
+            if (autoRefreshTimer) return;
+            autoRefreshTimer = setInterval(async () => {
+                try {
+                    const data = await cachedFetch('/api/latest', true);
+                    if (data.scanTime && currentData && data.scanTime !== currentData.scanTime) {
+                        currentData = data;
+                        renderData(data);
+                        showToast('数据已自动更新');
+                    }
+                } catch (e) { /* 静默失败 */ }
+            }, AUTO_REFRESH_INTERVAL);
+        }
+
         // Init
         loadLatest();
+        startAutoRefresh();
     </script>
 </body>
 
