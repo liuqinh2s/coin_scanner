@@ -746,6 +746,9 @@
                 );
             }
 
+            // 按标签数量降序排序，标签多的排前面
+            tokens.sort((a, b) => b.tags.length - a.tags.length);
+
             renderTagBar(data.tokens || []);
             renderTable(tokens);
             renderCards(tokens);
