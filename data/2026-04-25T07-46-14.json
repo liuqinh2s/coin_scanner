@@ -1,0 +1,5955 @@
+{
+  "scanTime": "2026-04-25 07:45:18",
+  "totalSymbols": 543,
+  "validSymbols": 516,
+  "filteredCount": 14,
+  "totalTagged": 514,
+  "btcDirection": "neutral",
+  "elapsed": 55.3,
+  "tokens": [
+    {
+      "symbol": "API3USDT",
+      "price": 0.3572,
+      "high_24h": 0.3769,
+      "low_24h": 0.3106,
+      "change_pct": 13.69,
+      "fund_rate": -0.005951,
+      "tags": [
+        "趋势共振",
+        "未追高",
+        "负费率(-0.5951%)",
+        "波动充足",
+        "仙人指路"
+      ]
+    },
+    {
+      "symbol": "MEGAUSDT",
+      "price": 0.17586,
+      "high_24h": 0.1814,
+      "low_24h": 0.15912,
+      "change_pct": 6.34,
+      "fund_rate": 5e-05,
+      "tags": [
+        "趋势共振",
+        "未追高",
+        "波动充足",
+        "龙头币",
+        "仙人指路"
+      ]
+    },
+    {
+      "symbol": "APEUSDT",
+      "price": 0.1824,
+      "high_24h": 0.2768,
+      "low_24h": 0.1483,
+      "change_pct": 4.53,
+      "fund_rate": -0.007143,
+      "tags": [
+        "趋势共振",
+        "负费率(-0.7143%)",
+        "波动充足",
+        "仙人指路"
+      ]
+    },
+    {
+      "symbol": "STRKUSDT",
+      "price": 0.040709,
+      "high_24h": 0.042232,
+      "low_24h": 0.040516,
+      "change_pct": -2.4,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足",
+        "龙头币",
+        "仙人指路"
+      ]
+    },
+    {
+      "symbol": "BANANAUSDT",
+      "price": 3.917,
+      "high_24h": 3.93,
+      "low_24h": 3.873,
+      "change_pct": 1.14,
+      "fund_rate": -0.000109,
+      "tags": [
+        "趋势共振",
+        "未追高",
+        "负费率(-0.0109%)",
+        "仙人指路"
+      ]
+    },
+    {
+      "symbol": "RAREUSDT",
+      "price": 0.01739,
+      "high_24h": 0.01751,
+      "low_24h": 0.01692,
+      "change_pct": 0.81,
+      "fund_rate": -0.000456,
+      "tags": [
+        "未追高",
+        "负费率(-0.0456%)",
+        "波动充足",
+        "仙人指路"
+      ]
+    },
+    {
+      "symbol": "VINEUSDT",
+      "price": 0.01578,
+      "high_24h": 0.01659,
+      "low_24h": 0.01542,
+      "change_pct": -1.25,
+      "fund_rate": -0.000186,
+      "tags": [
+        "未追高",
+        "负费率(-0.0186%)",
+        "波动充足",
+        "仙人指路"
+      ]
+    },
+    {
+      "symbol": "GUNUSDT",
+      "price": 0.01514,
+      "high_24h": 0.01557,
+      "low_24h": 0.01508,
+      "change_pct": -2.2,
+      "fund_rate": -0.000704,
+      "tags": [
+        "未追高",
+        "负费率(-0.0704%)",
+        "波动充足",
+        "龙头币"
+      ]
+    },
+    {
+      "symbol": "SPKUSDT",
+      "price": 0.04359,
+      "high_24h": 0.04485,
+      "low_24h": 0.04308,
+      "change_pct": -0.11,
+      "fund_rate": -0.00163,
+      "tags": [
+        "负费率(-0.1630%)",
+        "波动充足",
+        "龙头币",
+        "仙人指路"
+      ]
+    },
+    {
+      "symbol": "LYNUSDT",
+      "price": 0.06144,
+      "high_24h": 0.06325,
+      "low_24h": 0.0601,
+      "change_pct": -2.12,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足",
+        "龙头币",
+        "仙人指路"
+      ]
+    },
+    {
+      "symbol": "ZBTUSDT",
+      "price": 0.14444,
+      "high_24h": 0.1617,
+      "low_24h": 0.12417,
+      "change_pct": 15.32,
+      "fund_rate": 5e-05,
+      "tags": [
+        "趋势共振",
+        "未追高",
+        "波动充足",
+        "小量大涨"
+      ]
+    },
+    {
+      "symbol": "UAIUSDT",
+      "price": 0.29737,
+      "high_24h": 0.30318,
+      "low_24h": 0.28587,
+      "change_pct": 1.64,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足",
+        "龙头币",
+        "仙人指路"
+      ]
+    },
+    {
+      "symbol": "STABLEUSDT",
+      "price": 0.03221,
+      "high_24h": 0.03561,
+      "low_24h": 0.03204,
+      "change_pct": -2.19,
+      "fund_rate": -0.002038,
+      "tags": [
+        "未追高",
+        "负费率(-0.2038%)",
+        "波动充足",
+        "仙人指路"
+      ]
+    },
+    {
+      "symbol": "SKRUSDT",
+      "price": 0.019365,
+      "high_24h": 0.0213,
+      "low_24h": 0.018989,
+      "change_pct": -0.94,
+      "fund_rate": -0.001236,
+      "tags": [
+        "未追高",
+        "负费率(-0.1236%)",
+        "波动充足",
+        "仙人指路"
+      ]
+    },
+    {
+      "symbol": "KATUSDT",
+      "price": 0.02447,
+      "high_24h": 0.03061,
+      "low_24h": 0.02011,
+      "change_pct": 14.67,
+      "fund_rate": -0.003043,
+      "tags": [
+        "负费率(-0.3043%)",
+        "波动充足",
+        "龙头币",
+        "仙人指路"
+      ]
+    },
+    {
+      "symbol": "MANAUSDT",
+      "price": 0.0952,
+      "high_24h": 0.0965,
+      "low_24h": 0.0928,
+      "change_pct": 2.26,
+      "fund_rate": -0.000146,
+      "tags": [
+        "趋势共振",
+        "未追高",
+        "负费率(-0.0146%)"
+      ]
+    },
+    {
+      "symbol": "GALAUSDT",
+      "price": 0.003537,
+      "high_24h": 0.003636,
+      "low_24h": 0.003292,
+      "change_pct": 6.47,
+      "fund_rate": 0.0001,
+      "tags": [
+        "趋势共振",
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "DYDXUSDT",
+      "price": 0.1625,
+      "high_24h": 0.1669,
+      "low_24h": 0.1529,
+      "change_pct": 4.5,
+      "fund_rate": -6.1e-05,
+      "tags": [
+        "趋势共振",
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "ALICEUSDT",
+      "price": 0.1493,
+      "high_24h": 0.164,
+      "low_24h": 0.1482,
+      "change_pct": -1.32,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足",
+        "龙头币"
+      ]
+    },
+    {
+      "symbol": "BLURUSDT",
+      "price": 0.03204,
+      "high_24h": 0.03495,
+      "low_24h": 0.03177,
+      "change_pct": -4.47,
+      "fund_rate": -8.9e-05,
+      "tags": [
+        "未追高",
+        "波动充足",
+        "龙头币"
+      ]
+    },
+    {
+      "symbol": "CHRUSDT",
+      "price": 0.02241,
+      "high_24h": 0.02269,
+      "low_24h": 0.02164,
+      "change_pct": 3.51,
+      "fund_rate": 0.0001,
+      "tags": [
+        "趋势共振",
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "ARKMUSDT",
+      "price": 0.1234,
+      "high_24h": 0.1239,
+      "low_24h": 0.1216,
+      "change_pct": 0.65,
+      "fund_rate": 0.0001,
+      "tags": [
+        "趋势共振",
+        "未追高",
+        "仙人指路"
+      ]
+    },
+    {
+      "symbol": "1000RATSUSDT",
+      "price": 0.03664,
+      "high_24h": 0.03832,
+      "low_24h": 0.03643,
+      "change_pct": -4.28,
+      "fund_rate": 0.000645,
+      "tags": [
+        "未追高",
+        "波动充足",
+        "仙人指路"
+      ]
+    },
+    {
+      "symbol": "ACEUSDT",
+      "price": 0.1277,
+      "high_24h": 0.1325,
+      "low_24h": 0.1264,
+      "change_pct": -0.62,
+      "fund_rate": 8.3e-05,
+      "tags": [
+        "未追高",
+        "波动充足",
+        "仙人指路"
+      ]
+    },
+    {
+      "symbol": "AXLUSDT",
+      "price": 0.06134,
+      "high_24h": 0.06139,
+      "low_24h": 0.05926,
+      "change_pct": 2.76,
+      "fund_rate": -5.7e-05,
+      "tags": [
+        "趋势共振",
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "BOMEUSDT",
+      "price": 0.0005451,
+      "high_24h": 0.0005594,
+      "low_24h": 0.0005368,
+      "change_pct": -0.96,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足",
+        "仙人指路"
+      ]
+    },
+    {
+      "symbol": "AEVOUSDT",
+      "price": 0.02698,
+      "high_24h": 0.03418,
+      "low_24h": 0.02661,
+      "change_pct": -4.22,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足",
+        "小量大涨"
+      ]
+    },
+    {
+      "symbol": "MOVRUSDT",
+      "price": 2.209,
+      "high_24h": 2.328,
+      "low_24h": 2.186,
+      "change_pct": 0.5,
+      "fund_rate": -0.000504,
+      "tags": [
+        "负费率(-0.0504%)",
+        "波动充足",
+        "龙头币"
+      ]
+    },
+    {
+      "symbol": "BICOUSDT",
+      "price": 0.02708,
+      "high_24h": 0.02769,
+      "low_24h": 0.02606,
+      "change_pct": -0.18,
+      "fund_rate": 0.0001,
+      "tags": [
+        "趋势共振",
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "1000000MOGUSDT",
+      "price": 0.157,
+      "high_24h": 0.1597,
+      "low_24h": 0.1559,
+      "change_pct": -1.69,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足",
+        "龙头币"
+      ]
+    },
+    {
+      "symbol": "FLUXUSDT",
+      "price": 0.07466,
+      "high_24h": 0.07773,
+      "low_24h": 0.0736,
+      "change_pct": -1.7,
+      "fund_rate": -0.000193,
+      "tags": [
+        "未追高",
+        "负费率(-0.0193%)",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "NEIROCTOUSDT",
+      "price": 8.73e-05,
+      "high_24h": 9.05e-05,
+      "low_24h": 8.69e-05,
+      "change_pct": -3.43,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足",
+        "仙人指路"
+      ]
+    },
+    {
+      "symbol": "DEGENUSDT",
+      "price": 0.000664,
+      "high_24h": 0.000677,
+      "low_24h": 0.000659,
+      "change_pct": 0.45,
+      "fund_rate": -0.00062,
+      "tags": [
+        "未追高",
+        "负费率(-0.0620%)",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "GRASSUSDT",
+      "price": 0.3872,
+      "high_24h": 0.3943,
+      "low_24h": 0.3767,
+      "change_pct": -0.13,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足",
+        "龙头币"
+      ]
+    },
+    {
+      "symbol": "CETUSUSDT",
+      "price": 0.02667,
+      "high_24h": 0.02836,
+      "low_24h": 0.0265,
+      "change_pct": -5.43,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足",
+        "龙头币"
+      ]
+    },
+    {
+      "symbol": "BANUSDT",
+      "price": 0.07741,
+      "high_24h": 0.07869,
+      "low_24h": 0.07654,
+      "change_pct": -1.53,
+      "fund_rate": 0.000223,
+      "tags": [
+        "未追高",
+        "波动充足",
+        "龙头币"
+      ]
+    },
+    {
+      "symbol": "SCRTUSDT",
+      "price": 0.1077,
+      "high_24h": 0.1115,
+      "low_24h": 0.1068,
+      "change_pct": -3.06,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足",
+        "龙头币"
+      ]
+    },
+    {
+      "symbol": "CHILLGUYUSDT",
+      "price": 0.01251,
+      "high_24h": 0.01309,
+      "low_24h": 0.01246,
+      "change_pct": -4.06,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足",
+        "龙头币"
+      ]
+    },
+    {
+      "symbol": "1MCHEEMSUSDT",
+      "price": 0.6202,
+      "high_24h": 0.6435,
+      "low_24h": 0.6158,
+      "change_pct": 0.49,
+      "fund_rate": 0.000224,
+      "tags": [
+        "未追高",
+        "波动充足",
+        "仙人指路"
+      ]
+    },
+    {
+      "symbol": "MEUSDT",
+      "price": 0.1125,
+      "high_24h": 0.1186,
+      "low_24h": 0.1078,
+      "change_pct": 3.02,
+      "fund_rate": -0.000816,
+      "tags": [
+        "未追高",
+        "负费率(-0.0816%)",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "DEXEUSDT",
+      "price": 12.977,
+      "high_24h": 13.661,
+      "low_24h": 12.745,
+      "change_pct": -2.03,
+      "fund_rate": -3.8e-05,
+      "tags": [
+        "未追高",
+        "波动充足",
+        "龙头币"
+      ]
+    },
+    {
+      "symbol": "GRIFFAINUSDT",
+      "price": 0.02125,
+      "high_24h": 0.02314,
+      "low_24h": 0.02039,
+      "change_pct": 2.71,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足",
+        "龙头币"
+      ]
+    },
+    {
+      "symbol": "FLOCKUSDT",
+      "price": 0.07036,
+      "high_24h": 0.07072,
+      "low_24h": 0.06865,
+      "change_pct": 2.03,
+      "fund_rate": 5e-05,
+      "tags": [
+        "趋势共振",
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "B3USDT",
+      "price": 0.0002867,
+      "high_24h": 0.0002917,
+      "low_24h": 0.0002842,
+      "change_pct": -1.71,
+      "fund_rate": -0.000442,
+      "tags": [
+        "未追高",
+        "负费率(-0.0442%)",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "IPUSDT",
+      "price": 0.535,
+      "high_24h": 0.5436,
+      "low_24h": 0.5193,
+      "change_pct": 2.27,
+      "fund_rate": 5e-05,
+      "tags": [
+        "趋势共振",
+        "未追高",
+        "仙人指路"
+      ]
+    },
+    {
+      "symbol": "REDUSDT",
+      "price": 0.1401,
+      "high_24h": 0.1459,
+      "low_24h": 0.1393,
+      "change_pct": -3.25,
+      "fund_rate": -0.001573,
+      "tags": [
+        "未追高",
+        "负费率(-0.1573%)",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "NILUSDT",
+      "price": 0.04217,
+      "high_24h": 0.04278,
+      "low_24h": 0.04117,
+      "change_pct": 1.44,
+      "fund_rate": 5e-05,
+      "tags": [
+        "趋势共振",
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "HAEDALUSDT",
+      "price": 0.03755,
+      "high_24h": 0.03832,
+      "low_24h": 0.03386,
+      "change_pct": 10.31,
+      "fund_rate": 5e-05,
+      "tags": [
+        "趋势共振",
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "SOONUSDT",
+      "price": 0.1784,
+      "high_24h": 0.1862,
+      "low_24h": 0.1763,
+      "change_pct": -3.41,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足",
+        "龙头币"
+      ]
+    },
+    {
+      "symbol": "HUMAUSDT",
+      "price": 0.02666,
+      "high_24h": 0.0271,
+      "low_24h": 0.02614,
+      "change_pct": 0.19,
+      "fund_rate": -5.3e-05,
+      "tags": [
+        "未追高",
+        "波动充足",
+        "龙头币"
+      ]
+    },
+    {
+      "symbol": "HUSDT",
+      "price": 0.13902,
+      "high_24h": 0.14279,
+      "low_24h": 0.13153,
+      "change_pct": 3.81,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足",
+        "龙头币"
+      ]
+    },
+    {
+      "symbol": "MUSDT",
+      "price": 4.32267,
+      "high_24h": 4.43818,
+      "low_24h": 4.14223,
+      "change_pct": -1.67,
+      "fund_rate": 0.000893,
+      "tags": [
+        "未追高",
+        "波动充足",
+        "龙头币"
+      ]
+    },
+    {
+      "symbol": "CROSSUSDT",
+      "price": 0.10685,
+      "high_24h": 0.10949,
+      "low_24h": 0.10663,
+      "change_pct": -1.84,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足",
+        "龙头币"
+      ]
+    },
+    {
+      "symbol": "CUSDT",
+      "price": 0.08512,
+      "high_24h": 0.09811,
+      "low_24h": 0.08421,
+      "change_pct": -9.02,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足",
+        "龙头币"
+      ]
+    },
+    {
+      "symbol": "VELVETUSDT",
+      "price": 0.09411,
+      "high_24h": 0.09739,
+      "low_24h": 0.0906,
+      "change_pct": 1.48,
+      "fund_rate": 0.000387,
+      "tags": [
+        "未追高",
+        "波动充足",
+        "龙头币"
+      ]
+    },
+    {
+      "symbol": "TACUSDT",
+      "price": 0.0089,
+      "high_24h": 0.0089,
+      "low_24h": 0.007783,
+      "change_pct": 14.35,
+      "fund_rate": 0.000141,
+      "tags": [
+        "趋势共振",
+        "波动充足",
+        "龙头币"
+      ]
+    },
+    {
+      "symbol": "NAORISUSDT",
+      "price": 0.06545,
+      "high_24h": 0.06929,
+      "low_24h": 0.0649,
+      "change_pct": -4.16,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足",
+        "龙头币"
+      ]
+    },
+    {
+      "symbol": "QUSDT",
+      "price": 0.010556,
+      "high_24h": 0.011033,
+      "low_24h": 0.010316,
+      "change_pct": 0.95,
+      "fund_rate": 0.000511,
+      "tags": [
+        "未追高",
+        "波动充足",
+        "龙头币"
+      ]
+    },
+    {
+      "symbol": "ARMUSDT",
+      "price": 234.51,
+      "high_24h": 235.9,
+      "low_24h": 230.53,
+      "change_pct": -0.34,
+      "fund_rate": 0.0,
+      "tags": [
+        "未追高",
+        "波动充足",
+        "龙头币"
+      ]
+    },
+    {
+      "symbol": "KGENUSDT",
+      "price": 0.19162,
+      "high_24h": 0.19253,
+      "low_24h": 0.18133,
+      "change_pct": 2.36,
+      "fund_rate": 5e-05,
+      "tags": [
+        "趋势共振",
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "METUSDT",
+      "price": 0.1636,
+      "high_24h": 0.1707,
+      "low_24h": 0.1629,
+      "change_pct": -3.99,
+      "fund_rate": 3.6e-05,
+      "tags": [
+        "未追高",
+        "波动充足",
+        "龙头币"
+      ]
+    },
+    {
+      "symbol": "RECALLUSDT",
+      "price": 0.05187,
+      "high_24h": 0.05228,
+      "low_24h": 0.05039,
+      "change_pct": 2.23,
+      "fund_rate": 5e-05,
+      "tags": [
+        "趋势共振",
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "PIEVERSEUSDT",
+      "price": 0.78595,
+      "high_24h": 0.84356,
+      "low_24h": 0.768,
+      "change_pct": -4.15,
+      "fund_rate": 5e-05,
+      "tags": [
+        "波动充足",
+        "龙头币",
+        "仙人指路"
+      ]
+    },
+    {
+      "symbol": "BOBUSDT",
+      "price": 0.00588,
+      "high_24h": 0.006129,
+      "low_24h": 0.005813,
+      "change_pct": -2.87,
+      "fund_rate": -0.001448,
+      "tags": [
+        "未追高",
+        "负费率(-0.1448%)",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "IRYSUSDT",
+      "price": 0.03335,
+      "high_24h": 0.03379,
+      "low_24h": 0.0321,
+      "change_pct": -0.63,
+      "fund_rate": 0.0003,
+      "tags": [
+        "未追高",
+        "波动充足",
+        "龙头币"
+      ]
+    },
+    {
+      "symbol": "GWEIUSDT",
+      "price": 0.10119,
+      "high_24h": 0.10327,
+      "low_24h": 0.09892,
+      "change_pct": -0.6,
+      "fund_rate": 0.000255,
+      "tags": [
+        "波动充足",
+        "龙头币",
+        "仙人指路"
+      ]
+    },
+    {
+      "symbol": "TRIAUSDT",
+      "price": 0.033947,
+      "high_24h": 0.034347,
+      "low_24h": 0.032932,
+      "change_pct": 2.0,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足",
+        "龙头币"
+      ]
+    },
+    {
+      "symbol": "ROBOUSDT",
+      "price": 0.02479,
+      "high_24h": 0.02492,
+      "low_24h": 0.02308,
+      "change_pct": 2.31,
+      "fund_rate": 5e-05,
+      "tags": [
+        "趋势共振",
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "BSBUSDT",
+      "price": 0.45778,
+      "high_24h": 0.46761,
+      "low_24h": 0.40562,
+      "change_pct": 2.96,
+      "fund_rate": 0.000247,
+      "tags": [
+        "波动充足",
+        "龙头币",
+        "仙人指路"
+      ]
+    },
+    {
+      "symbol": "TRXUSDT",
+      "price": 0.32325,
+      "high_24h": 0.32537,
+      "low_24h": 0.3191,
+      "change_pct": -0.65,
+      "fund_rate": -0.000615,
+      "tags": [
+        "未追高",
+        "负费率(-0.0615%)"
+      ]
+    },
+    {
+      "symbol": "DOGEUSDT",
+      "price": 0.09816,
+      "high_24h": 0.09946,
+      "low_24h": 0.0976,
+      "change_pct": 0.13,
+      "fund_rate": -0.000102,
+      "tags": [
+        "未追高",
+        "负费率(-0.0102%)"
+      ]
+    },
+    {
+      "symbol": "FILUSDT",
+      "price": 0.94,
+      "high_24h": 0.9527,
+      "low_24h": 0.9355,
+      "change_pct": -0.61,
+      "fund_rate": -0.000104,
+      "tags": [
+        "未追高",
+        "负费率(-0.0104%)"
+      ]
+    },
+    {
+      "symbol": "ATOMUSDT",
+      "price": 1.9853,
+      "high_24h": 1.9954,
+      "low_24h": 1.9677,
+      "change_pct": -0.25,
+      "fund_rate": -0.000318,
+      "tags": [
+        "未追高",
+        "负费率(-0.0318%)"
+      ]
+    },
+    {
+      "symbol": "SUSHIUSDT",
+      "price": 0.2265,
+      "high_24h": 0.2279,
+      "low_24h": 0.2217,
+      "change_pct": 1.3,
+      "fund_rate": 6.7e-05,
+      "tags": [
+        "趋势共振",
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "KSMUSDT",
+      "price": 4.833,
+      "high_24h": 4.937,
+      "low_24h": 4.832,
+      "change_pct": -2.11,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高",
+        "仙人指路"
+      ]
+    },
+    {
+      "symbol": "ARUSDT",
+      "price": 1.97,
+      "high_24h": 1.993,
+      "low_24h": 1.933,
+      "change_pct": 1.18,
+      "fund_rate": 9.5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "PEOPLEUSDT",
+      "price": 0.008032,
+      "high_24h": 0.008136,
+      "low_24h": 0.007914,
+      "change_pct": -1.28,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "ENJUSDT",
+      "price": 0.0628,
+      "high_24h": 0.0662,
+      "low_24h": 0.06214,
+      "change_pct": -2.18,
+      "fund_rate": -0.00091,
+      "tags": [
+        "负费率(-0.0910%)",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "RUNEUSDT",
+      "price": 0.4757,
+      "high_24h": 0.4847,
+      "low_24h": 0.4726,
+      "change_pct": -1.74,
+      "fund_rate": -0.000142,
+      "tags": [
+        "未追高",
+        "负费率(-0.0142%)"
+      ]
+    },
+    {
+      "symbol": "APTUSDT",
+      "price": 0.9823,
+      "high_24h": 0.9865,
+      "low_24h": 0.9564,
+      "change_pct": 1.86,
+      "fund_rate": 0.0001,
+      "tags": [
+        "趋势共振",
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "CHZUSDT",
+      "price": 0.04805,
+      "high_24h": 0.04906,
+      "low_24h": 0.0477,
+      "change_pct": -1.8,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "KAVAUSDT",
+      "price": 0.06172,
+      "high_24h": 0.06172,
+      "low_24h": 0.06016,
+      "change_pct": 1.2,
+      "fund_rate": 5e-05,
+      "tags": [
+        "趋势共振",
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "OPUSDT",
+      "price": 0.1249,
+      "high_24h": 0.1265,
+      "low_24h": 0.1225,
+      "change_pct": 0.89,
+      "fund_rate": 0.0001,
+      "tags": [
+        "趋势共振",
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "COMPUSDT",
+      "price": 22.58,
+      "high_24h": 23.19,
+      "low_24h": 22.46,
+      "change_pct": -2.63,
+      "fund_rate": -0.000365,
+      "tags": [
+        "未追高",
+        "负费率(-0.0365%)"
+      ]
+    },
+    {
+      "symbol": "LUNAUSDT",
+      "price": 0.06233,
+      "high_24h": 0.06598,
+      "low_24h": 0.06134,
+      "change_pct": 1.61,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "TRBUSDT",
+      "price": 18.724,
+      "high_24h": 19.251,
+      "low_24h": 18.644,
+      "change_pct": -2.55,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "仙人指路"
+      ]
+    },
+    {
+      "symbol": "MASKUSDT",
+      "price": 0.5144,
+      "high_24h": 0.5157,
+      "low_24h": 0.5058,
+      "change_pct": -0.25,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "WOOUSDT",
+      "price": 0.01944,
+      "high_24h": 0.01959,
+      "low_24h": 0.01885,
+      "change_pct": 2.97,
+      "fund_rate": 0.0001,
+      "tags": [
+        "趋势共振",
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "BANDUSDT",
+      "price": 0.2245,
+      "high_24h": 0.2273,
+      "low_24h": 0.2218,
+      "change_pct": 1.22,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高",
+        "仙人指路"
+      ]
+    },
+    {
+      "symbol": "LUNCUSDT",
+      "price": 5.033e-05,
+      "high_24h": 5.294e-05,
+      "low_24h": 5.02e-05,
+      "change_pct": -1.39,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "MAGICUSDT",
+      "price": 0.06772,
+      "high_24h": 0.07009,
+      "low_24h": 0.06667,
+      "change_pct": -3.26,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "CFXUSDT",
+      "price": 0.06146,
+      "high_24h": 0.06286,
+      "low_24h": 0.061,
+      "change_pct": -2.23,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "SSVUSDT",
+      "price": 2.874,
+      "high_24h": 2.905,
+      "low_24h": 2.654,
+      "change_pct": 6.76,
+      "fund_rate": 0.0001,
+      "tags": [
+        "趋势共振",
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ARBUSDT",
+      "price": 0.1288,
+      "high_24h": 0.1319,
+      "low_24h": 0.1279,
+      "change_pct": -2.13,
+      "fund_rate": -0.000145,
+      "tags": [
+        "未追高",
+        "负费率(-0.0145%)"
+      ]
+    },
+    {
+      "symbol": "JOEUSDT",
+      "price": 0.0472,
+      "high_24h": 0.0486,
+      "low_24h": 0.0471,
+      "change_pct": -1.87,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "HOTUSDT",
+      "price": 0.0004483,
+      "high_24h": 0.0004621,
+      "low_24h": 0.000436,
+      "change_pct": 2.49,
+      "fund_rate": 0.0001,
+      "tags": [
+        "趋势共振",
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ZECUSDT",
+      "price": 359.2,
+      "high_24h": 367.36,
+      "low_24h": 351.91,
+      "change_pct": 0.36,
+      "fund_rate": -2e-06,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "SKLUSDT",
+      "price": 0.00718,
+      "high_24h": 0.00733,
+      "low_24h": 0.00711,
+      "change_pct": -0.14,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "仙人指路"
+      ]
+    },
+    {
+      "symbol": "ORDIUSDT",
+      "price": 4.865,
+      "high_24h": 4.98,
+      "low_24h": 4.514,
+      "change_pct": 5.33,
+      "fund_rate": 5e-05,
+      "tags": [
+        "趋势共振",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "USTCUSDT",
+      "price": 0.00545,
+      "high_24h": 0.00578,
+      "low_24h": 0.00542,
+      "change_pct": -2.33,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "MAVUSDT",
+      "price": 0.01631,
+      "high_24h": 0.0166,
+      "low_24h": 0.01599,
+      "change_pct": 0.06,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "BNTUSDT",
+      "price": 0.3184,
+      "high_24h": 0.3205,
+      "low_24h": 0.3161,
+      "change_pct": -0.66,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高",
+        "仙人指路"
+      ]
+    },
+    {
+      "symbol": "PYTHUSDT",
+      "price": 0.05045,
+      "high_24h": 0.05172,
+      "low_24h": 0.05045,
+      "change_pct": -2.27,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "1000SATSUSDT",
+      "price": 1.457e-05,
+      "high_24h": 1.491e-05,
+      "low_24h": 1.446e-05,
+      "change_pct": -1.75,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "DYMUSDT",
+      "price": 0.01996,
+      "high_24h": 0.02043,
+      "low_24h": 0.01847,
+      "change_pct": 7.89,
+      "fund_rate": 1.7e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "WIFUSDT",
+      "price": 0.1784,
+      "high_24h": 0.1818,
+      "low_24h": 0.1778,
+      "change_pct": -1.71,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "METISUSDT",
+      "price": 3.553,
+      "high_24h": 3.66,
+      "low_24h": 3.542,
+      "change_pct": -2.55,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "CAKEUSDT",
+      "price": 1.5005,
+      "high_24h": 1.5157,
+      "low_24h": 1.4927,
+      "change_pct": -0.87,
+      "fund_rate": -0.000136,
+      "tags": [
+        "未追高",
+        "负费率(-0.0136%)"
+      ]
+    },
+    {
+      "symbol": "AIUSDT",
+      "price": 0.01912,
+      "high_24h": 0.02062,
+      "low_24h": 0.01912,
+      "change_pct": -3.09,
+      "fund_rate": -5.1e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "SAGAUSDT",
+      "price": 0.01774,
+      "high_24h": 0.01824,
+      "low_24h": 0.01746,
+      "change_pct": -0.11,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "SUPERUSDT",
+      "price": 0.1291,
+      "high_24h": 0.1337,
+      "low_24h": 0.1284,
+      "change_pct": 0.08,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "仙人指路"
+      ]
+    },
+    {
+      "symbol": "LSKUSDT",
+      "price": 0.1291,
+      "high_24h": 0.1305,
+      "low_24h": 0.1286,
+      "change_pct": -1.0,
+      "fund_rate": -0.000457,
+      "tags": [
+        "未追高",
+        "负费率(-0.0457%)"
+      ]
+    },
+    {
+      "symbol": "REZUSDT",
+      "price": 0.003836,
+      "high_24h": 0.003923,
+      "low_24h": 0.003809,
+      "change_pct": -1.64,
+      "fund_rate": -0.000119,
+      "tags": [
+        "未追高",
+        "负费率(-0.0119%)"
+      ]
+    },
+    {
+      "symbol": "BBUSDT",
+      "price": 0.0278,
+      "high_24h": 0.02937,
+      "low_24h": 0.02733,
+      "change_pct": -1.07,
+      "fund_rate": 2.4e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "IOUSDT",
+      "price": 0.1284,
+      "high_24h": 0.1295,
+      "low_24h": 0.1242,
+      "change_pct": 2.07,
+      "fund_rate": 5e-05,
+      "tags": [
+        "趋势共振",
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ZKUSDT",
+      "price": 0.01703,
+      "high_24h": 0.01712,
+      "low_24h": 0.01654,
+      "change_pct": 2.34,
+      "fund_rate": 5e-05,
+      "tags": [
+        "趋势共振",
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ZKJUSDT",
+      "price": 0.01334,
+      "high_24h": 0.0147,
+      "low_24h": 0.01326,
+      "change_pct": -6.39,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "POLUSDT",
+      "price": 0.092,
+      "high_24h": 0.0957,
+      "low_24h": 0.092,
+      "change_pct": -3.87,
+      "fund_rate": -0.000135,
+      "tags": [
+        "未追高",
+        "负费率(-0.0135%)"
+      ]
+    },
+    {
+      "symbol": "KMNOUSDT",
+      "price": 0.0198,
+      "high_24h": 0.02004,
+      "low_24h": 0.01971,
+      "change_pct": -1.2,
+      "fund_rate": -0.000108,
+      "tags": [
+        "未追高",
+        "负费率(-0.0108%)"
+      ]
+    },
+    {
+      "symbol": "LUMIAUSDT",
+      "price": 0.132,
+      "high_24h": 0.13583,
+      "low_24h": 0.13069,
+      "change_pct": -1.28,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "AEROUSDT",
+      "price": 0.423,
+      "high_24h": 0.4289,
+      "low_24h": 0.421,
+      "change_pct": -1.38,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "DRIFTUSDT",
+      "price": 0.0342,
+      "high_24h": 0.0354,
+      "low_24h": 0.0341,
+      "change_pct": -3.12,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "PNUTUSDT",
+      "price": 0.05279,
+      "high_24h": 0.05489,
+      "low_24h": 0.05256,
+      "change_pct": -3.74,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "MERLUSDT",
+      "price": 0.03939,
+      "high_24h": 0.04082,
+      "low_24h": 0.03789,
+      "change_pct": 2.02,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "MORPHOUSDT",
+      "price": 1.8456,
+      "high_24h": 1.8662,
+      "low_24h": 1.839,
+      "change_pct": -0.44,
+      "fund_rate": -0.000132,
+      "tags": [
+        "未追高",
+        "负费率(-0.0132%)"
+      ]
+    },
+    {
+      "symbol": "MOVEUSDT",
+      "price": 0.01862,
+      "high_24h": 0.01875,
+      "low_24h": 0.01856,
+      "change_pct": -0.32,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "仙人指路"
+      ]
+    },
+    {
+      "symbol": "AVAUSDT",
+      "price": 0.251,
+      "high_24h": 0.2576,
+      "low_24h": 0.2506,
+      "change_pct": -2.22,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "VANAUSDT",
+      "price": 1.476,
+      "high_24h": 1.522,
+      "low_24h": 1.466,
+      "change_pct": -2.7,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "CGPTUSDT",
+      "price": 0.02407,
+      "high_24h": 0.02473,
+      "low_24h": 0.02406,
+      "change_pct": -1.07,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "AIXBTUSDT",
+      "price": 0.02809,
+      "high_24h": 0.02877,
+      "low_24h": 0.02797,
+      "change_pct": -2.3,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "ALCHUSDT",
+      "price": 0.08135,
+      "high_24h": 0.08343,
+      "low_24h": 0.08089,
+      "change_pct": -2.05,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "SUSDT",
+      "price": 0.04624,
+      "high_24h": 0.04748,
+      "low_24h": 0.0452,
+      "change_pct": 1.94,
+      "fund_rate": 1.3e-05,
+      "tags": [
+        "趋势共振",
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "PROMUSDT",
+      "price": 2.1532,
+      "high_24h": 2.315,
+      "low_24h": 2.0568,
+      "change_pct": -6.99,
+      "fund_rate": 5e-05,
+      "tags": [
+        "波动充足",
+        "龙头币"
+      ]
+    },
+    {
+      "symbol": "PIPPINUSDT",
+      "price": 0.02818,
+      "high_24h": 0.02852,
+      "low_24h": 0.02484,
+      "change_pct": 11.08,
+      "fund_rate": 0.000201,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "TRUMPUSDT",
+      "price": 2.872,
+      "high_24h": 3.128,
+      "low_24h": 2.841,
+      "change_pct": -1.74,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "PLUMEUSDT",
+      "price": 0.01316,
+      "high_24h": 0.01317,
+      "low_24h": 0.01283,
+      "change_pct": 0.61,
+      "fund_rate": 3.7e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "KAITOUSDT",
+      "price": 0.4065,
+      "high_24h": 0.4105,
+      "low_24h": 0.4036,
+      "change_pct": 0.15,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "EPICUSDT",
+      "price": 0.3124,
+      "high_24h": 0.3157,
+      "low_24h": 0.2973,
+      "change_pct": 5.08,
+      "fund_rate": 5e-05,
+      "tags": [
+        "趋势共振",
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "NMRUSDT",
+      "price": 8.979,
+      "high_24h": 9.095,
+      "low_24h": 8.936,
+      "change_pct": -1.13,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "SIRENUSDT",
+      "price": 0.66368,
+      "high_24h": 0.69007,
+      "low_24h": 0.65348,
+      "change_pct": -2.33,
+      "fund_rate": 0.000136,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "BANANAS31USDT",
+      "price": 0.009063,
+      "high_24h": 0.009357,
+      "low_24h": 0.009043,
+      "change_pct": -1.54,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "BRUSDT",
+      "price": 0.10512,
+      "high_24h": 0.10794,
+      "low_24h": 0.10399,
+      "change_pct": -0.6,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "WALUSDT",
+      "price": 0.0719,
+      "high_24h": 0.0719,
+      "low_24h": 0.0712,
+      "change_pct": 0.42,
+      "fund_rate": 4.4e-05,
+      "tags": [
+        "未追高",
+        "仙人指路"
+      ]
+    },
+    {
+      "symbol": "STOUSDT",
+      "price": 0.09539,
+      "high_24h": 0.10416,
+      "low_24h": 0.09355,
+      "change_pct": -7.45,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "KERNELUSDT",
+      "price": 0.07115,
+      "high_24h": 0.07202,
+      "low_24h": 0.06925,
+      "change_pct": 2.18,
+      "fund_rate": -0.000234,
+      "tags": [
+        "未追高",
+        "负费率(-0.0234%)"
+      ]
+    },
+    {
+      "symbol": "INITUSDT",
+      "price": 0.0924,
+      "high_24h": 0.095,
+      "low_24h": 0.0863,
+      "change_pct": 7.07,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "JSTUSDT",
+      "price": 0.07992,
+      "high_24h": 0.08175,
+      "low_24h": 0.07943,
+      "change_pct": -2.24,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "龙头币"
+      ]
+    },
+    {
+      "symbol": "MYXUSDT",
+      "price": 0.2531,
+      "high_24h": 0.2536,
+      "low_24h": 0.238,
+      "change_pct": 4.54,
+      "fund_rate": 0.000283,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "AWEUSDT",
+      "price": 0.051579,
+      "high_24h": 0.051944,
+      "low_24h": 0.051487,
+      "change_pct": -0.19,
+      "fund_rate": -0.000271,
+      "tags": [
+        "未追高",
+        "负费率(-0.0271%)"
+      ]
+    },
+    {
+      "symbol": "RESOLVUSDT",
+      "price": 0.02862,
+      "high_24h": 0.02875,
+      "low_24h": 0.02816,
+      "change_pct": 0.28,
+      "fund_rate": 3.9e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "TAGUSDT",
+      "price": 0.0006673,
+      "high_24h": 0.0006981,
+      "low_24h": 0.0006605,
+      "change_pct": -2.14,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "FUSDT",
+      "price": 0.005745,
+      "high_24h": 0.005767,
+      "low_24h": 0.005678,
+      "change_pct": 1.11,
+      "fund_rate": 5e-05,
+      "tags": [
+        "趋势共振",
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "NEWTUSDT",
+      "price": 0.0791,
+      "high_24h": 0.08,
+      "low_24h": 0.0784,
+      "change_pct": -0.38,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "仙人指路"
+      ]
+    },
+    {
+      "symbol": "AINUSDT",
+      "price": 0.06075,
+      "high_24h": 0.06198,
+      "low_24h": 0.06015,
+      "change_pct": 0.8,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "ESPORTSUSDT",
+      "price": 0.46159,
+      "high_24h": 0.50247,
+      "low_24h": 0.4527,
+      "change_pct": -3.24,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "TREEUSDT",
+      "price": 0.07447,
+      "high_24h": 0.08304,
+      "low_24h": 0.07384,
+      "change_pct": -4.85,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "INUSDT",
+      "price": 0.06739,
+      "high_24h": 0.06807,
+      "low_24h": 0.06696,
+      "change_pct": -0.6,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "TSLAUSDT",
+      "price": 375.73,
+      "high_24h": 378.21,
+      "low_24h": 373.0,
+      "change_pct": 0.23,
+      "fund_rate": 0.000569,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "SAPIENUSDT",
+      "price": 0.09148,
+      "high_24h": 0.09312,
+      "low_24h": 0.08907,
+      "change_pct": -1.26,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "BASUSDT",
+      "price": 0.015567,
+      "high_24h": 0.019641,
+      "low_24h": 0.014911,
+      "change_pct": -9.46,
+      "fund_rate": 5e-05,
+      "tags": [
+        "波动充足",
+        "龙头币"
+      ]
+    },
+    {
+      "symbol": "INTCUSDT",
+      "price": 82.64,
+      "high_24h": 82.76,
+      "low_24h": 79.71,
+      "change_pct": 0.9,
+      "fund_rate": 0.0,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "AVNTUSDT",
+      "price": 0.15132,
+      "high_24h": 0.15312,
+      "low_24h": 0.14986,
+      "change_pct": -0.81,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "MRVLUSDT",
+      "price": 162.6,
+      "high_24h": 164.94,
+      "low_24h": 160.61,
+      "change_pct": 0.97,
+      "fund_rate": 0.0,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "HOLOUSDT",
+      "price": 0.06247,
+      "high_24h": 0.06351,
+      "low_24h": 0.06233,
+      "change_pct": -0.97,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "XPINUSDT",
+      "price": 0.0012838,
+      "high_24h": 0.001334,
+      "low_24h": 0.001282,
+      "change_pct": -2.01,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "UBUSDT",
+      "price": 0.04722,
+      "high_24h": 0.04751,
+      "low_24h": 0.04583,
+      "change_pct": 1.86,
+      "fund_rate": 5e-05,
+      "tags": [
+        "波动充足",
+        "龙头币"
+      ]
+    },
+    {
+      "symbol": "BARDUSDT",
+      "price": 0.3045,
+      "high_24h": 0.3104,
+      "low_24h": 0.3041,
+      "change_pct": -1.81,
+      "fund_rate": -0.000557,
+      "tags": [
+        "未追高",
+        "负费率(-0.0557%)"
+      ]
+    },
+    {
+      "symbol": "MSFTUSDT",
+      "price": 423.86,
+      "high_24h": 425.65,
+      "low_24h": 418.69,
+      "change_pct": 0.86,
+      "fund_rate": 8.4e-05,
+      "tags": [
+        "趋势共振",
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "FLUIDUSDT",
+      "price": 1.7,
+      "high_24h": 1.722,
+      "low_24h": 1.692,
+      "change_pct": -0.87,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "COAIUSDT",
+      "price": 0.3421,
+      "high_24h": 0.3433,
+      "low_24h": 0.3217,
+      "change_pct": 5.55,
+      "fund_rate": 5e-05,
+      "tags": [
+        "趋势共振",
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "LIGHTUSDT",
+      "price": 0.1597,
+      "high_24h": 0.1613,
+      "low_24h": 0.1573,
+      "change_pct": 0.13,
+      "fund_rate": 0.000134,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "XANUSDT",
+      "price": 0.008378,
+      "high_24h": 0.008542,
+      "low_24h": 0.008291,
+      "change_pct": 0.04,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "NOMUSDT",
+      "price": 0.002841,
+      "high_24h": 0.002954,
+      "low_24h": 0.002802,
+      "change_pct": -1.97,
+      "fund_rate": -0.000139,
+      "tags": [
+        "负费率(-0.0139%)",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "4USDT",
+      "price": 0.01102,
+      "high_24h": 0.01142,
+      "low_24h": 0.01096,
+      "change_pct": -3.25,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "YBUSDT",
+      "price": 0.1244,
+      "high_24h": 0.1272,
+      "low_24h": 0.1242,
+      "change_pct": -2.05,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "仙人指路"
+      ]
+    },
+    {
+      "symbol": "EULUSDT",
+      "price": 1.437,
+      "high_24h": 1.491,
+      "low_24h": 1.425,
+      "change_pct": -2.77,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "ENSOUSDT",
+      "price": 0.807,
+      "high_24h": 0.8271,
+      "low_24h": 0.8051,
+      "change_pct": -2.41,
+      "fund_rate": -0.000139,
+      "tags": [
+        "未追高",
+        "负费率(-0.0139%)"
+      ]
+    },
+    {
+      "symbol": "CLOUSDT",
+      "price": 0.1327,
+      "high_24h": 0.1413,
+      "low_24h": 0.1312,
+      "change_pct": -0.45,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "LABUSDT",
+      "price": 0.74996,
+      "high_24h": 0.76912,
+      "low_24h": 0.67832,
+      "change_pct": 9.8,
+      "fund_rate": 0.002786,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "TRUSTUSDT",
+      "price": 0.07193,
+      "high_24h": 0.07273,
+      "low_24h": 0.0708,
+      "change_pct": -0.01,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "FOLKSUSDT",
+      "price": 1.4541,
+      "high_24h": 1.5641,
+      "low_24h": 1.411,
+      "change_pct": -6.6,
+      "fund_rate": 0.000187,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "ALLOUSDT",
+      "price": 0.1209,
+      "high_24h": 0.1237,
+      "low_24h": 0.1182,
+      "change_pct": -2.26,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "JCTUSDT",
+      "price": 0.002556,
+      "high_24h": 0.00265,
+      "low_24h": 0.002499,
+      "change_pct": 1.35,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "POWERUSDT",
+      "price": 0.09874,
+      "high_24h": 0.10305,
+      "low_24h": 0.09023,
+      "change_pct": 8.74,
+      "fund_rate": 0.000583,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "USUSDT",
+      "price": 0.004556,
+      "high_24h": 0.004678,
+      "low_24h": 0.004526,
+      "change_pct": -2.61,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "IRUSDT",
+      "price": 0.02901,
+      "high_24h": 0.03325,
+      "low_24h": 0.02765,
+      "change_pct": -12.41,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "ZKPUSDT",
+      "price": 0.07895,
+      "high_24h": 0.07925,
+      "low_24h": 0.07678,
+      "change_pct": 0.68,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "BREVUSDT",
+      "price": 0.1355,
+      "high_24h": 0.137,
+      "low_24h": 0.1344,
+      "change_pct": -0.44,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "ZAMAUSDT",
+      "price": 0.03261,
+      "high_24h": 0.03352,
+      "low_24h": 0.0315,
+      "change_pct": 3.0,
+      "fund_rate": 2.8e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "FOGOUSDT",
+      "price": 0.01859,
+      "high_24h": 0.01884,
+      "low_24h": 0.01847,
+      "change_pct": -0.69,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "ACUUSDT",
+      "price": 0.09599,
+      "high_24h": 0.10047,
+      "low_24h": 0.0954,
+      "change_pct": -4.35,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "ELSAUSDT",
+      "price": 0.07601,
+      "high_24h": 0.07672,
+      "low_24h": 0.073,
+      "change_pct": 2.87,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "SENTUSDT",
+      "price": 0.0192,
+      "high_24h": 0.01984,
+      "low_24h": 0.01905,
+      "change_pct": -2.83,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "SPACEUSDT",
+      "price": 0.006453,
+      "high_24h": 0.006978,
+      "low_24h": 0.006411,
+      "change_pct": -2.95,
+      "fund_rate": 9e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "FIGHTUSDT",
+      "price": 0.00373,
+      "high_24h": 0.004136,
+      "low_24h": 0.003685,
+      "change_pct": -6.47,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "BIRBUSDT",
+      "price": 0.15646,
+      "high_24h": 0.16376,
+      "low_24h": 0.1558,
+      "change_pct": -2.57,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "XPTUSDT",
+      "price": 2012.5,
+      "high_24h": 2028.15,
+      "low_24h": 2012.31,
+      "change_pct": -0.74,
+      "fund_rate": -0.000122,
+      "tags": [
+        "未追高",
+        "负费率(-0.0122%)"
+      ]
+    },
+    {
+      "symbol": "INXUSDT",
+      "price": 0.009441,
+      "high_24h": 0.010707,
+      "low_24h": 0.009366,
+      "change_pct": -11.11,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "SPYUSDT",
+      "price": 713.11,
+      "high_24h": 713.84,
+      "low_24h": 711.8,
+      "change_pct": 0.04,
+      "fund_rate": -0.000333,
+      "tags": [
+        "未追高",
+        "负费率(-0.0333%)"
+      ]
+    },
+    {
+      "symbol": "ESPUSDT",
+      "price": 0.078102,
+      "high_24h": 0.081412,
+      "low_24h": 0.077786,
+      "change_pct": -2.38,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "OPNUSDT",
+      "price": 0.2231,
+      "high_24h": 0.2258,
+      "low_24h": 0.1997,
+      "change_pct": 8.62,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "龙虾USDT",
+      "price": 0.008754,
+      "high_24h": 0.009121,
+      "low_24h": 0.008728,
+      "change_pct": -4.02,
+      "fund_rate": 7.1e-05,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "BASEDUSDT",
+      "price": 0.1226,
+      "high_24h": 0.1313,
+      "low_24h": 0.1216,
+      "change_pct": -4.07,
+      "fund_rate": 5e-05,
+      "tags": [
+        "波动充足",
+        "龙头币"
+      ]
+    },
+    {
+      "symbol": "EDGEUSDT",
+      "price": 1.4569,
+      "high_24h": 1.4995,
+      "low_24h": 1.4152,
+      "change_pct": 2.71,
+      "fund_rate": 0.000297,
+      "tags": [
+        "未追高",
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "ETHUSDT",
+      "price": 2313.07,
+      "high_24h": 2327.0,
+      "low_24h": 2305.8,
+      "change_pct": -0.44,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "XRPUSDT",
+      "price": 1.4312,
+      "high_24h": 1.4498,
+      "low_24h": 1.4286,
+      "change_pct": -1.1,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "BCHUSDT",
+      "price": 455.53,
+      "high_24h": 460.55,
+      "low_24h": 454.45,
+      "change_pct": -0.97,
+      "fund_rate": 6.4e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "LTCUSDT",
+      "price": 56.43,
+      "high_24h": 56.74,
+      "low_24h": 56.32,
+      "change_pct": -0.19,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ADAUSDT",
+      "price": 0.2502,
+      "high_24h": 0.2529,
+      "low_24h": 0.2498,
+      "change_pct": -0.75,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ETCUSDT",
+      "price": 8.522,
+      "high_24h": 8.602,
+      "low_24h": 8.489,
+      "change_pct": -0.86,
+      "fund_rate": -4.3e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "LINKUSDT",
+      "price": 9.366,
+      "high_24h": 9.439,
+      "low_24h": 9.323,
+      "change_pct": -0.01,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "DOTUSDT",
+      "price": 1.25,
+      "high_24h": 1.268,
+      "low_24h": 1.244,
+      "change_pct": -0.64,
+      "fund_rate": 7.7e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "SOLUSDT",
+      "price": 86.148,
+      "high_24h": 86.896,
+      "low_24h": 85.883,
+      "change_pct": -0.36,
+      "fund_rate": -2.2e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "BNBUSDT",
+      "price": 635.88,
+      "high_24h": 639.53,
+      "low_24h": 635.0,
+      "change_pct": -0.53,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "UNIUSDT",
+      "price": 3.247,
+      "high_24h": 3.289,
+      "low_24h": 3.23,
+      "change_pct": -0.4,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ICPUSDT",
+      "price": 2.453,
+      "high_24h": 2.489,
+      "low_24h": 2.443,
+      "change_pct": -0.73,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "AAVEUSDT",
+      "price": 94.07,
+      "high_24h": 95.76,
+      "low_24h": 93.31,
+      "change_pct": -0.27,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "XLMUSDT",
+      "price": 0.17306,
+      "high_24h": 0.17534,
+      "low_24h": 0.17243,
+      "change_pct": -0.89,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "XTZUSDT",
+      "price": 0.3716,
+      "high_24h": 0.3752,
+      "low_24h": 0.37,
+      "change_pct": -0.91,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "AXSUSDT",
+      "price": 1.13,
+      "high_24h": 1.139,
+      "low_24h": 1.112,
+      "change_pct": 0.62,
+      "fund_rate": -9.8e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "THETAUSDT",
+      "price": 0.2144,
+      "high_24h": 0.2185,
+      "low_24h": 0.2142,
+      "change_pct": -1.7,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "AVAXUSDT",
+      "price": 9.385,
+      "high_24h": 9.472,
+      "low_24h": 9.364,
+      "change_pct": -0.75,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "DASHUSDT",
+      "price": 36.45,
+      "high_24h": 37.17,
+      "low_24h": 36.29,
+      "change_pct": -0.82,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "SHIBUSDT",
+      "price": 6.195e-06,
+      "high_24h": 6.283e-06,
+      "low_24h": 6.182e-06,
+      "change_pct": -0.66,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "SANDUSDT",
+      "price": 0.07862,
+      "high_24h": 0.08013,
+      "low_24h": 0.07764,
+      "change_pct": 0.01,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "CRVUSDT",
+      "price": 0.2241,
+      "high_24h": 0.2278,
+      "low_24h": 0.2226,
+      "change_pct": -0.58,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "NEARUSDT",
+      "price": 1.4061,
+      "high_24h": 1.4318,
+      "low_24h": 1.3983,
+      "change_pct": -1.4,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "EGLDUSDT",
+      "price": 4.272,
+      "high_24h": 4.317,
+      "low_24h": 4.237,
+      "change_pct": -0.77,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "NEOUSDT",
+      "price": 2.867,
+      "high_24h": 2.898,
+      "low_24h": 2.86,
+      "change_pct": -1.0,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ALGOUSDT",
+      "price": 0.1094,
+      "high_24h": 0.11,
+      "low_24h": 0.107,
+      "change_pct": 0.37,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "IOTAUSDT",
+      "price": 0.0579,
+      "high_24h": 0.05856,
+      "low_24h": 0.05765,
+      "change_pct": 0.21,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "GMTUSDT",
+      "price": 0.01157,
+      "high_24h": 0.01176,
+      "low_24h": 0.01141,
+      "change_pct": -0.52,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ZILUSDT",
+      "price": 0.00413,
+      "high_24h": 0.004196,
+      "low_24h": 0.004101,
+      "change_pct": -0.29,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "IOSTUSDT",
+      "price": 0.001095,
+      "high_24h": 0.001112,
+      "low_24h": 0.001091,
+      "change_pct": -1.53,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "KNCUSDT",
+      "price": 0.1436,
+      "high_24h": 0.1456,
+      "low_24h": 0.1433,
+      "change_pct": -1.03,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "XMRUSDT",
+      "price": 369.0,
+      "high_24h": 374.58,
+      "low_24h": 366.66,
+      "change_pct": -0.58,
+      "fund_rate": 0.000426,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ROSEUSDT",
+      "price": 0.01051,
+      "high_24h": 0.01086,
+      "low_24h": 0.01048,
+      "change_pct": -3.13,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ZRXUSDT",
+      "price": 0.1136,
+      "high_24h": 0.1166,
+      "low_24h": 0.1135,
+      "change_pct": -2.49,
+      "fund_rate": 5e-06,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ENSUSDT",
+      "price": 6.265,
+      "high_24h": 6.379,
+      "low_24h": 6.235,
+      "change_pct": -1.79,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "MTLUSDT",
+      "price": 0.2965,
+      "high_24h": 0.2992,
+      "low_24h": 0.2955,
+      "change_pct": 0.27,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "C98USDT",
+      "price": 0.02145,
+      "high_24h": 0.02179,
+      "low_24h": 0.02128,
+      "change_pct": 0.28,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "RSRUSDT",
+      "price": 0.001778,
+      "high_24h": 0.001814,
+      "low_24h": 0.001769,
+      "change_pct": -1.82,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "SNXUSDT",
+      "price": 0.3035,
+      "high_24h": 0.3063,
+      "low_24h": 0.3021,
+      "change_pct": -0.46,
+      "fund_rate": -1e-06,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "STORJUSDT",
+      "price": 0.1003,
+      "high_24h": 0.1015,
+      "low_24h": 0.1002,
+      "change_pct": -0.4,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "1INCHUSDT",
+      "price": 0.0961,
+      "high_24h": 0.0967,
+      "low_24h": 0.0956,
+      "change_pct": -0.31,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "IMXUSDT",
+      "price": 0.1735,
+      "high_24h": 0.1773,
+      "low_24h": 0.1723,
+      "change_pct": -1.98,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "QTUMUSDT",
+      "price": 0.904,
+      "high_24h": 0.915,
+      "low_24h": 0.902,
+      "change_pct": -1.09,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "GRTUSDT",
+      "price": 0.02478,
+      "high_24h": 0.02516,
+      "low_24h": 0.02458,
+      "change_pct": -0.16,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "STGUSDT",
+      "price": 0.2051,
+      "high_24h": 0.2057,
+      "low_24h": 0.2017,
+      "change_pct": -0.24,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ONEUSDT",
+      "price": 0.002323,
+      "high_24h": 0.00239,
+      "low_24h": 0.002292,
+      "change_pct": 1.35,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "JASMYUSDT",
+      "price": 0.005771,
+      "high_24h": 0.00585,
+      "low_24h": 0.00571,
+      "change_pct": -0.09,
+      "fund_rate": -3.1e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "BATUSDT",
+      "price": 0.1037,
+      "high_24h": 0.1053,
+      "low_24h": 0.1035,
+      "change_pct": -0.77,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "LDOUSDT",
+      "price": 0.379,
+      "high_24h": 0.3842,
+      "low_24h": 0.3752,
+      "change_pct": -1.22,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "CELOUSDT",
+      "price": 0.0945,
+      "high_24h": 0.0968,
+      "low_24h": 0.0925,
+      "change_pct": 0.64,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "MINAUSDT",
+      "price": 0.06138,
+      "high_24h": 0.06166,
+      "low_24h": 0.06081,
+      "change_pct": 0.21,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ASTRUSDT",
+      "price": 0.00825,
+      "high_24h": 0.00835,
+      "low_24h": 0.00821,
+      "change_pct": -0.72,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "GMXUSDT",
+      "price": 6.879,
+      "high_24h": 6.956,
+      "low_24h": 6.851,
+      "change_pct": -0.22,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ANKRUSDT",
+      "price": 0.0051,
+      "high_24h": 0.005184,
+      "low_24h": 0.005085,
+      "change_pct": -1.03,
+      "fund_rate": -5.7e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ACHUSDT",
+      "price": 0.006232,
+      "high_24h": 0.00632,
+      "low_24h": 0.006222,
+      "change_pct": 0.03,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "FETUSDT",
+      "price": 0.2084,
+      "high_24h": 0.2107,
+      "low_24h": 0.2068,
+      "change_pct": -1.09,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "USDCUSDT",
+      "price": 0.9989,
+      "high_24h": 0.999,
+      "low_24h": 0.9989,
+      "change_pct": -0.01,
+      "fund_rate": 2.1e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "LQTYUSDT",
+      "price": 0.3075,
+      "high_24h": 0.3123,
+      "low_24h": 0.3056,
+      "change_pct": -0.77,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "STXUSDT",
+      "price": 0.228,
+      "high_24h": 0.2313,
+      "low_24h": 0.2271,
+      "change_pct": -1.38,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "HBARUSDT",
+      "price": 0.0909,
+      "high_24h": 0.0922,
+      "low_24h": 0.09076,
+      "change_pct": -0.71,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "INJUSDT",
+      "price": 3.422,
+      "high_24h": 3.466,
+      "low_24h": 3.401,
+      "change_pct": -0.38,
+      "fund_rate": 2.5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "BELUSDT",
+      "price": 0.1111,
+      "high_24h": 0.1118,
+      "low_24h": 0.1099,
+      "change_pct": 0.18,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "COTIUSDT",
+      "price": 0.01435,
+      "high_24h": 0.01472,
+      "low_24h": 0.01427,
+      "change_pct": -1.17,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "VETUSDT",
+      "price": 0.00726,
+      "high_24h": 0.007367,
+      "low_24h": 0.007246,
+      "change_pct": -1.4,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "KAIAUSDT",
+      "price": 0.04812,
+      "high_24h": 0.04841,
+      "low_24h": 0.04804,
+      "change_pct": -0.6,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "CKBUSDT",
+      "price": 0.001516,
+      "high_24h": 0.001532,
+      "low_24h": 0.001512,
+      "change_pct": -0.13,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "IDUSDT",
+      "price": 0.03141,
+      "high_24h": 0.03181,
+      "low_24h": 0.03125,
+      "change_pct": -0.79,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "TLMUSDT",
+      "price": 0.001874,
+      "high_24h": 0.001916,
+      "low_24h": 0.00187,
+      "change_pct": -1.52,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ICXUSDT",
+      "price": 0.03804,
+      "high_24h": 0.03843,
+      "low_24h": 0.03769,
+      "change_pct": 0.21,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "HFTUSDT",
+      "price": 0.01541,
+      "high_24h": 0.01591,
+      "low_24h": 0.01522,
+      "change_pct": -1.97,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ONTUSDT",
+      "price": 0.07776,
+      "high_24h": 0.07856,
+      "low_24h": 0.07691,
+      "change_pct": -0.93,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ARPAUSDT",
+      "price": 0.00994,
+      "high_24h": 0.01009,
+      "low_24h": 0.00993,
+      "change_pct": 0.0,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "SFPUSDT",
+      "price": 0.3218,
+      "high_24h": 0.3242,
+      "low_24h": 0.3154,
+      "change_pct": 1.19,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "CTSIUSDT",
+      "price": 0.03447,
+      "high_24h": 0.03477,
+      "low_24h": 0.03404,
+      "change_pct": -0.17,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "RVNUSDT",
+      "price": 0.005973,
+      "high_24h": 0.00601,
+      "low_24h": 0.005925,
+      "change_pct": -0.52,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "CELRUSDT",
+      "price": 0.002744,
+      "high_24h": 0.002799,
+      "low_24h": 0.002738,
+      "change_pct": -0.69,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "FLOKIUSDT",
+      "price": 3.293e-05,
+      "high_24h": 3.361e-05,
+      "low_24h": 3.286e-05,
+      "change_pct": -1.61,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "SPELLUSDT",
+      "price": 0.0001648,
+      "high_24h": 0.0001661,
+      "low_24h": 0.000164,
+      "change_pct": 0.0,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "SUIUSDT",
+      "price": 0.9447,
+      "high_24h": 0.9554,
+      "low_24h": 0.9423,
+      "change_pct": -0.79,
+      "fund_rate": 5.4e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "PEPEUSDT",
+      "price": 3.8585e-06,
+      "high_24h": 3.9297e-06,
+      "low_24h": 3.8505e-06,
+      "change_pct": -0.65,
+      "fund_rate": 6e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "IOTXUSDT",
+      "price": 0.00482,
+      "high_24h": 0.0049,
+      "low_24h": 0.00482,
+      "change_pct": 0.0,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "CTKUSDT",
+      "price": 0.1798,
+      "high_24h": 0.1846,
+      "low_24h": 0.1798,
+      "change_pct": -1.21,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "UMAUSDT",
+      "price": 0.4828,
+      "high_24h": 0.4969,
+      "low_24h": 0.4804,
+      "change_pct": -0.62,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "TURBOUSDT",
+      "price": 0.001171,
+      "high_24h": 0.001188,
+      "low_24h": 0.001159,
+      "change_pct": -1.43,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "BSVUSDT",
+      "price": 15.77,
+      "high_24h": 16.03,
+      "low_24h": 15.75,
+      "change_pct": -1.5,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "TONUSDT",
+      "price": 1.3369,
+      "high_24h": 1.3538,
+      "low_24h": 1.3123,
+      "change_pct": 1.2,
+      "fund_rate": 2e-06,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ZENUSDT",
+      "price": 6.084,
+      "high_24h": 6.216,
+      "low_24h": 6.059,
+      "change_pct": -2.11,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "SLPUSDT",
+      "price": 0.000682,
+      "high_24h": 0.0006951,
+      "low_24h": 0.0006765,
+      "change_pct": -0.38,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "1000BONKUSDT",
+      "price": 0.006316,
+      "high_24h": 0.006438,
+      "low_24h": 0.006296,
+      "change_pct": -1.83,
+      "fund_rate": 1e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "QNTUSDT",
+      "price": 71.52,
+      "high_24h": 72.27,
+      "low_24h": 71.34,
+      "change_pct": -0.43,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "XVGUSDT",
+      "price": 0.003451,
+      "high_24h": 0.003507,
+      "low_24h": 0.003438,
+      "change_pct": -1.54,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "1000XECUSDT",
+      "price": 0.00716,
+      "high_24h": 0.00726,
+      "low_24h": 0.00711,
+      "change_pct": 0.56,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "AGLDUSDT",
+      "price": 0.2732,
+      "high_24h": 0.2777,
+      "low_24h": 0.2707,
+      "change_pct": -0.22,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "WLDUSDT",
+      "price": 0.261,
+      "high_24h": 0.264,
+      "low_24h": 0.2585,
+      "change_pct": -1.06,
+      "fund_rate": -4.2e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "PENDLEUSDT",
+      "price": 1.288,
+      "high_24h": 1.3179,
+      "low_24h": 1.2737,
+      "change_pct": -2.09,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "CVXUSDT",
+      "price": 1.774,
+      "high_24h": 1.795,
+      "low_24h": 1.774,
+      "change_pct": -0.45,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "YGGUSDT",
+      "price": 0.04194,
+      "high_24h": 0.04264,
+      "low_24h": 0.04169,
+      "change_pct": 0.05,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "OGNUSDT",
+      "price": 0.02375,
+      "high_24h": 0.02397,
+      "low_24h": 0.02363,
+      "change_pct": -0.46,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "LPTUSDT",
+      "price": 2.131,
+      "high_24h": 2.152,
+      "low_24h": 2.129,
+      "change_pct": -0.75,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "SEIUSDT",
+      "price": 0.06143,
+      "high_24h": 0.06221,
+      "low_24h": 0.06096,
+      "change_pct": -1.21,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "CYBERUSDT",
+      "price": 0.537,
+      "high_24h": 0.5453,
+      "low_24h": 0.5339,
+      "change_pct": -0.74,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "BIGTIMEUSDT",
+      "price": 0.01381,
+      "high_24h": 0.01408,
+      "low_24h": 0.01372,
+      "change_pct": 0.44,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "WAXPUSDT",
+      "price": 0.006783,
+      "high_24h": 0.006866,
+      "low_24h": 0.006783,
+      "change_pct": -0.98,
+      "fund_rate": -6.8e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "POLYXUSDT",
+      "price": 0.0505,
+      "high_24h": 0.05109,
+      "low_24h": 0.05033,
+      "change_pct": -1.14,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "TIAUSDT",
+      "price": 0.3587,
+      "high_24h": 0.364,
+      "low_24h": 0.3557,
+      "change_pct": -1.02,
+      "fund_rate": 4.5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "MEMEUSDT",
+      "price": 0.0005752,
+      "high_24h": 0.0005946,
+      "low_24h": 0.0005739,
+      "change_pct": -1.32,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "JTOUSDT",
+      "price": 0.3426,
+      "high_24h": 0.3499,
+      "low_24h": 0.3426,
+      "change_pct": -1.86,
+      "fund_rate": -3.6e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "XAIUSDT",
+      "price": 0.0103,
+      "high_24h": 0.01053,
+      "low_24h": 0.01025,
+      "change_pct": -0.87,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "MANTAUSDT",
+      "price": 0.06525,
+      "high_24h": 0.0662,
+      "low_24h": 0.06498,
+      "change_pct": -0.91,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ALTUSDT",
+      "price": 0.007843,
+      "high_24h": 0.007913,
+      "low_24h": 0.007784,
+      "change_pct": 0.03,
+      "fund_rate": -7.3e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "JUPUSDT",
+      "price": 0.1733,
+      "high_24h": 0.1758,
+      "low_24h": 0.1727,
+      "change_pct": -0.69,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ZETAUSDT",
+      "price": 0.05593,
+      "high_24h": 0.05643,
+      "low_24h": 0.05541,
+      "change_pct": -0.78,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "PIXELUSDT",
+      "price": 0.00787,
+      "high_24h": 0.008021,
+      "low_24h": 0.007716,
+      "change_pct": 0.47,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "BEAMUSDT",
+      "price": 0.002004,
+      "high_24h": 0.002025,
+      "low_24h": 0.001998,
+      "change_pct": -1.04,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "VANRYUSDT",
+      "price": 0.005407,
+      "high_24h": 0.005477,
+      "low_24h": 0.005363,
+      "change_pct": 0.6,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ETHFIUSDT",
+      "price": 0.4476,
+      "high_24h": 0.4561,
+      "low_24h": 0.4455,
+      "change_pct": -1.8,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ONDOUSDT",
+      "price": 0.2617,
+      "high_24h": 0.2673,
+      "low_24h": 0.2614,
+      "change_pct": -1.84,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "KASUSDT",
+      "price": 0.03373,
+      "high_24h": 0.03404,
+      "low_24h": 0.03357,
+      "change_pct": -0.56,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ENAUSDT",
+      "price": 0.1082,
+      "high_24h": 0.1101,
+      "low_24h": 0.1074,
+      "change_pct": -0.46,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "WUSDT",
+      "price": 0.01433,
+      "high_24h": 0.01441,
+      "low_24h": 0.01328,
+      "change_pct": 7.66,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "CVCUSDT",
+      "price": 0.03095,
+      "high_24h": 0.03118,
+      "low_24h": 0.03071,
+      "change_pct": -0.03,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "TNSRUSDT",
+      "price": 0.04048,
+      "high_24h": 0.04159,
+      "low_24h": 0.03981,
+      "change_pct": 0.4,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "TAOUSDT",
+      "price": 248.11,
+      "high_24h": 252.62,
+      "low_24h": 246.18,
+      "change_pct": 0.25,
+      "fund_rate": 1.7e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "RAYUSDT",
+      "price": 0.6674,
+      "high_24h": 0.6754,
+      "low_24h": 0.6649,
+      "change_pct": -0.13,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ATAUSDT",
+      "price": 0.0103,
+      "high_24h": 0.01063,
+      "low_24h": 0.0103,
+      "change_pct": -2.46,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ONGUSDT",
+      "price": 0.07831,
+      "high_24h": 0.07954,
+      "low_24h": 0.07797,
+      "change_pct": -1.4,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "GLMUSDT",
+      "price": 0.133,
+      "high_24h": 0.1334,
+      "low_24h": 0.1317,
+      "change_pct": 0.68,
+      "fund_rate": -6.9e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "XVSUSDT",
+      "price": 2.646,
+      "high_24h": 2.665,
+      "low_24h": 2.632,
+      "change_pct": -0.19,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "NOTUSDT",
+      "price": 0.0004305,
+      "high_24h": 0.0004417,
+      "low_24h": 0.0004155,
+      "change_pct": 2.84,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "TAIKOUSDT",
+      "price": 0.1198,
+      "high_24h": 0.1217,
+      "low_24h": 0.1197,
+      "change_pct": -0.75,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "BRETTUSDT",
+      "price": 0.006928,
+      "high_24h": 0.007034,
+      "low_24h": 0.006886,
+      "change_pct": -0.6,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ATHUSDT",
+      "price": 0.006032,
+      "high_24h": 0.006107,
+      "low_24h": 0.006001,
+      "change_pct": -1.23,
+      "fund_rate": 3.9e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "MEWUSDT",
+      "price": 0.0006093,
+      "high_24h": 0.0006187,
+      "low_24h": 0.0006072,
+      "change_pct": -1.04,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "LISTAUSDT",
+      "price": 0.0858,
+      "high_24h": 0.0867,
+      "low_24h": 0.0848,
+      "change_pct": 1.06,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ZROUSDT",
+      "price": 1.573,
+      "high_24h": 1.5939,
+      "low_24h": 1.5654,
+      "change_pct": -0.56,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "PAXGUSDT",
+      "price": 4694.89,
+      "high_24h": 4715.38,
+      "low_24h": 4690.6,
+      "change_pct": -0.38,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "BGBUSDT",
+      "price": 1.9774,
+      "high_24h": 1.9989,
+      "low_24h": 1.9723,
+      "change_pct": -1.08,
+      "fund_rate": -4.3e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "MOCAUSDT",
+      "price": 0.01371,
+      "high_24h": 0.0141,
+      "low_24h": 0.01339,
+      "change_pct": 1.41,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "GASUSDT",
+      "price": 1.654,
+      "high_24h": 1.664,
+      "low_24h": 1.65,
+      "change_pct": -0.3,
+      "fund_rate": -3.2e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "POPCATUSDT",
+      "price": 0.06038,
+      "high_24h": 0.06191,
+      "low_24h": 0.05991,
+      "change_pct": -1.79,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "RENDERUSDT",
+      "price": 1.786,
+      "high_24h": 1.818,
+      "low_24h": 1.778,
+      "change_pct": -1.43,
+      "fund_rate": 1.6e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "TUSDT",
+      "price": 0.006211,
+      "high_24h": 0.006243,
+      "low_24h": 0.006195,
+      "change_pct": -0.46,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "GUSDT",
+      "price": 0.003755,
+      "high_24h": 0.003785,
+      "low_24h": 0.003748,
+      "change_pct": -0.64,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "SYNUSDT",
+      "price": 0.05445,
+      "high_24h": 0.05574,
+      "low_24h": 0.05416,
+      "change_pct": -1.87,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "SUNUSDT",
+      "price": 0.018629,
+      "high_24h": 0.018793,
+      "low_24h": 0.018574,
+      "change_pct": -0.6,
+      "fund_rate": -2.5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "DOGSUSDT",
+      "price": 3.285e-05,
+      "high_24h": 3.364e-05,
+      "low_24h": 3.251e-05,
+      "change_pct": -0.42,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ORDERUSDT",
+      "price": 0.0562,
+      "high_24h": 0.05684,
+      "low_24h": 0.05533,
+      "change_pct": -0.18,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "AKTUSDT",
+      "price": 0.485,
+      "high_24h": 0.4916,
+      "low_24h": 0.4794,
+      "change_pct": -1.14,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "HNTUSDT",
+      "price": 1.001,
+      "high_24h": 1.025,
+      "low_24h": 1.001,
+      "change_pct": -1.96,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "RPLUSDT",
+      "price": 1.848,
+      "high_24h": 1.884,
+      "low_24h": 1.843,
+      "change_pct": -1.75,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "AERGOUSDT",
+      "price": 0.05501,
+      "high_24h": 0.05567,
+      "low_24h": 0.05481,
+      "change_pct": -0.83,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "1MBABYDOGEUSDT",
+      "price": 0.000423,
+      "high_24h": 0.0004294,
+      "low_24h": 0.0004214,
+      "change_pct": -1.19,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "1000CATUSDT",
+      "price": 0.001887,
+      "high_24h": 0.001929,
+      "low_24h": 0.001876,
+      "change_pct": -1.82,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "FIDAUSDT",
+      "price": 0.01669,
+      "high_24h": 0.01696,
+      "low_24h": 0.01661,
+      "change_pct": -0.89,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "CATIUSDT",
+      "price": 0.0477,
+      "high_24h": 0.04838,
+      "low_24h": 0.04765,
+      "change_pct": 0.02,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ARKUSDT",
+      "price": 0.1721,
+      "high_24h": 0.1745,
+      "low_24h": 0.1719,
+      "change_pct": -0.64,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "EIGENUSDT",
+      "price": 0.1814,
+      "high_24h": 0.1863,
+      "low_24h": 0.1807,
+      "change_pct": -1.41,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "MOODENGUSDT",
+      "price": 0.05925,
+      "high_24h": 0.06074,
+      "low_24h": 0.05853,
+      "change_pct": -2.15,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "DIAUSDT",
+      "price": 0.2003,
+      "high_24h": 0.2098,
+      "low_24h": 0.1983,
+      "change_pct": -1.62,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "OGUSDT",
+      "price": 3.0763,
+      "high_24h": 3.1539,
+      "low_24h": 3.0703,
+      "change_pct": -2.08,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ETHWUSDT",
+      "price": 0.2989,
+      "high_24h": 0.3043,
+      "low_24h": 0.2984,
+      "change_pct": -0.9,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "POWRUSDT",
+      "price": 0.06463,
+      "high_24h": 0.06527,
+      "low_24h": 0.06444,
+      "change_pct": 0.03,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "CARVUSDT",
+      "price": 0.05883,
+      "high_24h": 0.05936,
+      "low_24h": 0.05868,
+      "change_pct": 0.07,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "DEEPUSDT",
+      "price": 0.03074,
+      "high_24h": 0.03133,
+      "low_24h": 0.03059,
+      "change_pct": -1.28,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "GOATUSDT",
+      "price": 0.01702,
+      "high_24h": 0.01718,
+      "low_24h": 0.0169,
+      "change_pct": -0.93,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "SAFEUSDT",
+      "price": 0.1473,
+      "high_24h": 0.1499,
+      "low_24h": 0.1473,
+      "change_pct": -0.67,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "SANTOSUSDT",
+      "price": 1.285,
+      "high_24h": 1.299,
+      "low_24h": 1.275,
+      "change_pct": -1.0,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "SPXUSDT",
+      "price": 0.3812,
+      "high_24h": 0.388,
+      "low_24h": 0.3772,
+      "change_pct": -1.68,
+      "fund_rate": 1.1e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "VIRTUALUSDT",
+      "price": 0.7012,
+      "high_24h": 0.7122,
+      "low_24h": 0.6964,
+      "change_pct": -1.0,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "COWUSDT",
+      "price": 0.1908,
+      "high_24h": 0.1927,
+      "low_24h": 0.1885,
+      "change_pct": -0.47,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ACTUSDT",
+      "price": 0.0143,
+      "high_24h": 0.01444,
+      "low_24h": 0.01419,
+      "change_pct": 0.07,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "CROUSDT",
+      "price": 0.06935,
+      "high_24h": 0.06955,
+      "low_24h": 0.06925,
+      "change_pct": -0.17,
+      "fund_rate": 0.0001,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "STEEMUSDT",
+      "price": 0.05846,
+      "high_24h": 0.05879,
+      "low_24h": 0.05832,
+      "change_pct": -0.32,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "THEUSDT",
+      "price": 0.1005,
+      "high_24h": 0.1064,
+      "low_24h": 0.1003,
+      "change_pct": -5.55,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ORCAUSDT",
+      "price": 0.938,
+      "high_24h": 0.943,
+      "low_24h": 0.933,
+      "change_pct": -0.21,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ACXUSDT",
+      "price": 0.04388,
+      "high_24h": 0.04424,
+      "low_24h": 0.04362,
+      "change_pct": 0.34,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "VELODROMEUSDT",
+      "price": 0.016381,
+      "high_24h": 0.01668,
+      "low_24h": 0.016381,
+      "change_pct": -1.04,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "HYPEUSDT",
+      "price": 41.087,
+      "high_24h": 41.465,
+      "low_24h": 40.85,
+      "change_pct": -0.15,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "PENGUUSDT",
+      "price": 0.008348,
+      "high_24h": 0.008628,
+      "low_24h": 0.008276,
+      "change_pct": -2.82,
+      "fund_rate": -6.3e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "USUALUSDT",
+      "price": 0.01457,
+      "high_24h": 0.01508,
+      "low_24h": 0.01451,
+      "change_pct": -3.25,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "FARTCOINUSDT",
+      "price": 0.1991,
+      "high_24h": 0.2035,
+      "low_24h": 0.1975,
+      "change_pct": -1.19,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "HIVEUSDT",
+      "price": 0.06138,
+      "high_24h": 0.06213,
+      "low_24h": 0.06126,
+      "change_pct": -0.32,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "PHAUSDT",
+      "price": 0.03199,
+      "high_24h": 0.03274,
+      "low_24h": 0.03182,
+      "change_pct": -1.17,
+      "fund_rate": 2.2e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "BIOUSDT",
+      "price": 0.0314,
+      "high_24h": 0.03317,
+      "low_24h": 0.03134,
+      "change_pct": -3.12,
+      "fund_rate": 5e-05,
+      "tags": [
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "COOKIEUSDT",
+      "price": 0.01645,
+      "high_24h": 0.01681,
+      "low_24h": 0.01636,
+      "change_pct": -1.38,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "SONICUSDT",
+      "price": 0.03617,
+      "high_24h": 0.03644,
+      "low_24h": 0.03606,
+      "change_pct": -0.22,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ARCUSDT",
+      "price": 0.06478,
+      "high_24h": 0.06572,
+      "low_24h": 0.06032,
+      "change_pct": -0.67,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "MELANIAUSDT",
+      "price": 0.1147,
+      "high_24h": 0.123,
+      "low_24h": 0.1147,
+      "change_pct": -1.04,
+      "fund_rate": 7.3e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "VTHOUSDT",
+      "price": 0.000583,
+      "high_24h": 0.0005896,
+      "low_24h": 0.0005808,
+      "change_pct": -0.07,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ANIMEUSDT",
+      "price": 0.004998,
+      "high_24h": 0.005205,
+      "low_24h": 0.004856,
+      "change_pct": 2.67,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "TOSHIUSDT",
+      "price": 0.0001809,
+      "high_24h": 0.0001857,
+      "low_24h": 0.0001799,
+      "change_pct": -1.58,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "VVVUSDT",
+      "price": 8.763,
+      "high_24h": 8.838,
+      "low_24h": 8.47,
+      "change_pct": 3.41,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "BERAUSDT",
+      "price": 0.3949,
+      "high_24h": 0.3998,
+      "low_24h": 0.3933,
+      "change_pct": -1.1,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "LAYERUSDT",
+      "price": 0.0872,
+      "high_24h": 0.0877,
+      "low_24h": 0.0866,
+      "change_pct": 0.0,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "SHELLUSDT",
+      "price": 0.03505,
+      "high_24h": 0.0355,
+      "low_24h": 0.0345,
+      "change_pct": 1.13,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "BROCCOLIUSDT",
+      "price": 0.01479,
+      "high_24h": 0.01496,
+      "low_24h": 0.01467,
+      "change_pct": 0.68,
+      "fund_rate": 0.000542,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "AUCTIONUSDT",
+      "price": 4.787,
+      "high_24h": 4.818,
+      "low_24h": 4.773,
+      "change_pct": -0.58,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "GPSUSDT",
+      "price": 0.008651,
+      "high_24h": 0.008875,
+      "low_24h": 0.008594,
+      "change_pct": -2.02,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "PIUSDT",
+      "price": 0.1694,
+      "high_24h": 0.1705,
+      "low_24h": 0.1689,
+      "change_pct": -0.35,
+      "fund_rate": -1.5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "MUBARAKUSDT",
+      "price": 0.01399,
+      "high_24h": 0.01419,
+      "low_24h": 0.01383,
+      "change_pct": 0.14,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "TUTUSDT",
+      "price": 0.01123,
+      "high_24h": 0.01134,
+      "low_24h": 0.01117,
+      "change_pct": 0.36,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "FORMUSDT",
+      "price": 0.2621,
+      "high_24h": 0.2631,
+      "low_24h": 0.2601,
+      "change_pct": -0.19,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "MLNUSDT",
+      "price": 3.154,
+      "high_24h": 3.167,
+      "low_24h": 3.116,
+      "change_pct": 1.06,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "XAUTUSDT",
+      "price": 4688.67,
+      "high_24h": 4710.97,
+      "low_24h": 4681.99,
+      "change_pct": -0.41,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "BABYUSDT",
+      "price": 0.01598,
+      "high_24h": 0.01602,
+      "low_24h": 0.01582,
+      "change_pct": 0.25,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "WCTUSDT",
+      "price": 0.0627,
+      "high_24h": 0.06391,
+      "low_24h": 0.06202,
+      "change_pct": 0.02,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "BANKUSDT",
+      "price": 0.0366,
+      "high_24h": 0.03701,
+      "low_24h": 0.03632,
+      "change_pct": -1.11,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "HYPERUSDT",
+      "price": 0.0976,
+      "high_24h": 0.0982,
+      "low_24h": 0.097,
+      "change_pct": -0.31,
+      "fund_rate": -1.2e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ZORAUSDT",
+      "price": 0.01419,
+      "high_24h": 0.01436,
+      "low_24h": 0.01413,
+      "change_pct": -1.18,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "DOLOUSDT",
+      "price": 0.03302,
+      "high_24h": 0.03425,
+      "low_24h": 0.03296,
+      "change_pct": -3.31,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "PUNDIXUSDT",
+      "price": 0.1498,
+      "high_24h": 0.1522,
+      "low_24h": 0.1496,
+      "change_pct": -0.86,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "B2USDT",
+      "price": 0.6327,
+      "high_24h": 0.6376,
+      "low_24h": 0.6271,
+      "change_pct": 0.09,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ASRUSDT",
+      "price": 1.292,
+      "high_24h": 1.303,
+      "low_24h": 1.285,
+      "change_pct": -0.84,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "SYRUPUSDT",
+      "price": 0.2341,
+      "high_24h": 0.2373,
+      "low_24h": 0.2334,
+      "change_pct": -0.72,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "SXTUSDT",
+      "price": 0.01754,
+      "high_24h": 0.01774,
+      "low_24h": 0.01727,
+      "change_pct": 0.46,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "DOODUSDT",
+      "price": 0.003225,
+      "high_24h": 0.003294,
+      "low_24h": 0.003207,
+      "change_pct": -1.74,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "SKYAIUSDT",
+      "price": 0.19463,
+      "high_24h": 0.20254,
+      "low_24h": 0.19429,
+      "change_pct": -3.87,
+      "fund_rate": 0.000733,
+      "tags": [
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "NXPCUSDT",
+      "price": 0.2978,
+      "high_24h": 0.301,
+      "low_24h": 0.2977,
+      "change_pct": -0.37,
+      "fund_rate": -3.5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "BUSDT",
+      "price": 0.1003,
+      "high_24h": 0.1015,
+      "low_24h": 0.0973,
+      "change_pct": 1.83,
+      "fund_rate": 0.000261,
+      "tags": [
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "SOPHUSDT",
+      "price": 0.00909,
+      "high_24h": 0.00919,
+      "low_24h": 0.00907,
+      "change_pct": -0.11,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "AUSDT",
+      "price": 0.09042,
+      "high_24h": 0.09219,
+      "low_24h": 0.08986,
+      "change_pct": 0.44,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "LAUSDT",
+      "price": 0.1638,
+      "high_24h": 0.1644,
+      "low_24h": 0.1621,
+      "change_pct": 0.0,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "HOMEUSDT",
+      "price": 0.01618,
+      "high_24h": 0.01646,
+      "low_24h": 0.01614,
+      "change_pct": -0.61,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "IDOLUSDT",
+      "price": 0.02405,
+      "high_24h": 0.02422,
+      "low_24h": 0.02392,
+      "change_pct": -0.37,
+      "fund_rate": 0.000163,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "SQDUSDT",
+      "price": 0.03193,
+      "high_24h": 0.03264,
+      "low_24h": 0.03186,
+      "change_pct": -1.18,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "SAHARAUSDT",
+      "price": 0.02178,
+      "high_24h": 0.02191,
+      "low_24h": 0.02164,
+      "change_pct": 0.18,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ICNTUSDT",
+      "price": 0.3624,
+      "high_24h": 0.3888,
+      "low_24h": 0.3568,
+      "change_pct": 0.06,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "USELESSUSDT",
+      "price": 0.04354,
+      "high_24h": 0.0438,
+      "low_24h": 0.04267,
+      "change_pct": -0.18,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "PUMPUSDT",
+      "price": 0.001776,
+      "high_24h": 0.001803,
+      "low_24h": 0.001762,
+      "change_pct": -0.84,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ERAUSDT",
+      "price": 0.1426,
+      "high_24h": 0.1454,
+      "low_24h": 0.1421,
+      "change_pct": -0.83,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "PROVEUSDT",
+      "price": 0.2504,
+      "high_24h": 0.2555,
+      "low_24h": 0.2495,
+      "change_pct": -0.6,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "TOWNSUSDT",
+      "price": 0.00335,
+      "high_24h": 0.003407,
+      "low_24h": 0.003321,
+      "change_pct": -0.98,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ILVUSDT",
+      "price": 4.699,
+      "high_24h": 4.841,
+      "low_24h": 4.67,
+      "change_pct": -0.11,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "AIOUSDT",
+      "price": 0.08374,
+      "high_24h": 0.08537,
+      "low_24h": 0.08333,
+      "change_pct": -1.17,
+      "fund_rate": 0.000253,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "CRCLUSDT",
+      "price": 99.5,
+      "high_24h": 100.26,
+      "low_24h": 97.91,
+      "change_pct": -0.03,
+      "fund_rate": 0.000492,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "NVDAUSDT",
+      "price": 208.14,
+      "high_24h": 210.98,
+      "low_24h": 207.68,
+      "change_pct": -0.55,
+      "fund_rate": 0.0,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "WLFIUSDT",
+      "price": 0.0753,
+      "high_24h": 0.0755,
+      "low_24h": 0.0743,
+      "change_pct": -0.13,
+      "fund_rate": -9e-06,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "SOMIUSDT",
+      "price": 0.1709,
+      "high_24h": 0.1726,
+      "low_24h": 0.1706,
+      "change_pct": -0.75,
+      "fund_rate": 2e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "AAPLUSDT",
+      "price": 270.99,
+      "high_24h": 271.75,
+      "low_24h": 269.86,
+      "change_pct": -0.06,
+      "fund_rate": 0.0,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "GOOGLUSDT",
+      "price": 343.64,
+      "high_24h": 345.48,
+      "low_24h": 342.45,
+      "change_pct": 0.17,
+      "fund_rate": 0.000434,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "AMZNUSDT",
+      "price": 264.21,
+      "high_24h": 264.9,
+      "low_24h": 261.96,
+      "change_pct": 0.38,
+      "fund_rate": 0.0,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "METAUSDT",
+      "price": 675.01,
+      "high_24h": 680.61,
+      "low_24h": 674.24,
+      "change_pct": -0.13,
+      "fund_rate": 0.0,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "MCDUSDT",
+      "price": 300.02,
+      "high_24h": 301.21,
+      "low_24h": 299.43,
+      "change_pct": -0.07,
+      "fund_rate": 0.0,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "XPLUSDT",
+      "price": 0.0999,
+      "high_24h": 0.1013,
+      "low_24h": 0.0993,
+      "change_pct": -0.89,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "HOODUSDT",
+      "price": 84.62,
+      "high_24h": 85.08,
+      "low_24h": 83.94,
+      "change_pct": 0.17,
+      "fund_rate": 0.0,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "COINUSDT",
+      "price": 199.78,
+      "high_24h": 201.97,
+      "low_24h": 198.52,
+      "change_pct": -0.41,
+      "fund_rate": 0.0,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "MSTRUSDT",
+      "price": 170.82,
+      "high_24h": 172.67,
+      "low_24h": 169.39,
+      "change_pct": -0.48,
+      "fund_rate": 0.0,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "LINEAUSDT",
+      "price": 0.003432,
+      "high_24h": 0.003488,
+      "low_24h": 0.00338,
+      "change_pct": 1.18,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ARIAUSDT",
+      "price": 0.06648,
+      "high_24h": 0.0713,
+      "low_24h": 0.06576,
+      "change_pct": -6.76,
+      "fund_rate": 0.00072,
+      "tags": [
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "BABAUSDT",
+      "price": 136.1,
+      "high_24h": 136.4,
+      "low_24h": 135.37,
+      "change_pct": 0.21,
+      "fund_rate": 0.0,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ASMLUSDT",
+      "price": 1460.52,
+      "high_24h": 1471.67,
+      "low_24h": 1455.79,
+      "change_pct": -0.51,
+      "fund_rate": 0.0,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "OPENUSDT",
+      "price": 0.2287,
+      "high_24h": 0.2327,
+      "low_24h": 0.2276,
+      "change_pct": -1.21,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "PLTRUSDT",
+      "price": 142.36,
+      "high_24h": 143.4,
+      "low_24h": 139.8,
+      "change_pct": 1.14,
+      "fund_rate": 0.0,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ORCLUSDT",
+      "price": 172.72,
+      "high_24h": 174.55,
+      "low_24h": 169.23,
+      "change_pct": 0.91,
+      "fund_rate": 0.0,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "GEUSDT",
+      "price": 283.99,
+      "high_24h": 285.75,
+      "low_24h": 280.66,
+      "change_pct": 0.86,
+      "fund_rate": 0.0,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "SKYUSDT",
+      "price": 0.08436,
+      "high_24h": 0.08459,
+      "low_24h": 0.08286,
+      "change_pct": 0.78,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "APPUSDT",
+      "price": 447.07,
+      "high_24h": 451.76,
+      "low_24h": 432.36,
+      "change_pct": 2.35,
+      "fund_rate": 0.0,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "GMEUSDT",
+      "price": 25.03,
+      "high_24h": 25.08,
+      "low_24h": 24.75,
+      "change_pct": 0.28,
+      "fund_rate": 0.0,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ZKCUSDT",
+      "price": 0.0737,
+      "high_24h": 0.0755,
+      "low_24h": 0.0733,
+      "change_pct": 0.14,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "0GUSDT",
+      "price": 0.5672,
+      "high_24h": 0.5784,
+      "low_24h": 0.5672,
+      "change_pct": -1.24,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ASTERUSDT",
+      "price": 0.6673,
+      "high_24h": 0.6706,
+      "low_24h": 0.6656,
+      "change_pct": -0.28,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "BLESSUSDT",
+      "price": 0.006128,
+      "high_24h": 0.006404,
+      "low_24h": 0.006124,
+      "change_pct": -2.93,
+      "fund_rate": 5e-05,
+      "tags": [
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "MIRAUSDT",
+      "price": 0.0859,
+      "high_24h": 0.0874,
+      "low_24h": 0.0858,
+      "change_pct": -0.46,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "STBLUSDT",
+      "price": 0.03445,
+      "high_24h": 0.03546,
+      "low_24h": 0.034,
+      "change_pct": 0.76,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "FFUSDT",
+      "price": 0.07223,
+      "high_24h": 0.07392,
+      "low_24h": 0.07181,
+      "change_pct": -2.1,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "2ZUSDT",
+      "price": 0.08487,
+      "high_24h": 0.08487,
+      "low_24h": 0.0831,
+      "change_pct": 0.89,
+      "fund_rate": -9.8e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "MONUSDT",
+      "price": 0.03069,
+      "high_24h": 0.03142,
+      "low_24h": 0.03035,
+      "change_pct": -2.32,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "GIGGLEUSDT",
+      "price": 35.35,
+      "high_24h": 35.54,
+      "low_24h": 34.61,
+      "change_pct": 0.65,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "RIVERUSDT",
+      "price": 6.438,
+      "high_24h": 7.227,
+      "low_24h": 6.335,
+      "change_pct": -1.44,
+      "fund_rate": 0.000356,
+      "tags": [
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "APRUSDT",
+      "price": 0.17913,
+      "high_24h": 0.1828,
+      "low_24h": 0.17295,
+      "change_pct": 3.09,
+      "fund_rate": 0.000298,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "CLANKERUSDT",
+      "price": 24.78,
+      "high_24h": 24.92,
+      "low_24h": 24.37,
+      "change_pct": -0.56,
+      "fund_rate": 0.000229,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "QQQUSDT",
+      "price": 662.59,
+      "high_24h": 663.89,
+      "low_24h": 661.49,
+      "change_pct": 0.03,
+      "fund_rate": -6.8e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "RDDTUSDT",
+      "price": 154.61,
+      "high_24h": 154.68,
+      "low_24h": 152.77,
+      "change_pct": 1.2,
+      "fund_rate": 0.0,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "JDUSDT",
+      "price": 30.27,
+      "high_24h": 30.33,
+      "low_24h": 30.17,
+      "change_pct": -0.13,
+      "fund_rate": 0.0,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "FUTUUSDT",
+      "price": 159.74,
+      "high_24h": 160.65,
+      "low_24h": 159.09,
+      "change_pct": -0.57,
+      "fund_rate": 0.0,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "ATUSDT",
+      "price": 0.1645,
+      "high_24h": 0.1654,
+      "low_24h": 0.1612,
+      "change_pct": -0.24,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "KITEUSDT",
+      "price": 0.14522,
+      "high_24h": 0.15139,
+      "low_24h": 0.145,
+      "change_pct": -4.08,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "MMTUSDT",
+      "price": 0.1369,
+      "high_24h": 0.1371,
+      "low_24h": 0.1344,
+      "change_pct": 0.37,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "UNHUSDT",
+      "price": 354.77,
+      "high_24h": 355.67,
+      "low_24h": 351.66,
+      "change_pct": 0.54,
+      "fund_rate": 0.0,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "LLYUSDT",
+      "price": 885.43,
+      "high_24h": 886.98,
+      "low_24h": 876.05,
+      "change_pct": 0.17,
+      "fund_rate": 0.0,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "BEATUSDT",
+      "price": 0.58565,
+      "high_24h": 0.60526,
+      "low_24h": 0.58205,
+      "change_pct": -1.19,
+      "fund_rate": 5.4e-05,
+      "tags": [
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "WETUSDT",
+      "price": 0.10001,
+      "high_24h": 0.10102,
+      "low_24h": 0.09936,
+      "change_pct": -0.77,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "NIGHTUSDT",
+      "price": 0.03753,
+      "high_24h": 0.03769,
+      "low_24h": 0.037,
+      "change_pct": 0.24,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "CYSUSDT",
+      "price": 0.49239,
+      "high_24h": 0.52,
+      "low_24h": 0.46641,
+      "change_pct": 5.09,
+      "fund_rate": 0.0002,
+      "tags": [
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "RAVEUSDT",
+      "price": 0.89834,
+      "high_24h": 0.99503,
+      "low_24h": 0.866,
+      "change_pct": -2.7,
+      "fund_rate": 0.000201,
+      "tags": [
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "XAUUSDT",
+      "price": 4705.82,
+      "high_24h": 4727.44,
+      "low_24h": 4702.1,
+      "change_pct": -0.39,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "LITUSDT",
+      "price": 0.943,
+      "high_24h": 0.949,
+      "low_24h": 0.936,
+      "change_pct": -0.21,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "MAGMAUSDT",
+      "price": 0.27008,
+      "high_24h": 0.28519,
+      "low_24h": 0.24591,
+      "change_pct": 4.61,
+      "fund_rate": 5e-05,
+      "tags": [
+        "波动充足"
+      ]
+    },
+    {
+      "symbol": "XAGUSDT",
+      "price": 75.74,
+      "high_24h": 76.66,
+      "low_24h": 75.66,
+      "change_pct": -0.84,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "FRAXUSDT",
+      "price": 0.46368,
+      "high_24h": 0.46802,
+      "low_24h": 0.46118,
+      "change_pct": -0.51,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "XPDUSDT",
+      "price": 1500.62,
+      "high_24h": 1509.99,
+      "low_24h": 1498.2,
+      "change_pct": -0.28,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "MUUSDT",
+      "price": 494.98,
+      "high_24h": 500.95,
+      "low_24h": 494.06,
+      "change_pct": -0.83,
+      "fund_rate": 0.000277,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "AVGOUSDT",
+      "price": 419.9,
+      "high_24h": 422.98,
+      "low_24h": 418.68,
+      "change_pct": 0.02,
+      "fund_rate": 0.0,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "AZTECUSDT",
+      "price": 0.02315,
+      "high_24h": 0.02379,
+      "low_24h": 0.0231,
+      "change_pct": -1.36,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "TSMUSDT",
+      "price": 402.9,
+      "high_24h": 409.7,
+      "low_24h": 401.0,
+      "change_pct": -0.78,
+      "fund_rate": 0.0,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "WMTUSDT",
+      "price": 129.85,
+      "high_24h": 130.7,
+      "low_24h": 129.35,
+      "change_pct": -0.25,
+      "fund_rate": 0.0,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "COSTUSDT",
+      "price": 1009.41,
+      "high_24h": 1012.8,
+      "low_24h": 1006.67,
+      "change_pct": 0.13,
+      "fund_rate": 0.0,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "MANTRAUSDT",
+      "price": 0.01034,
+      "high_24h": 0.01047,
+      "low_24h": 0.01024,
+      "change_pct": -1.24,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "COPPERUSDT",
+      "price": 6.096,
+      "high_24h": 6.107,
+      "low_24h": 6.087,
+      "change_pct": -0.18,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "COPUSDT",
+      "price": 121.54,
+      "high_24h": 122.1,
+      "low_24h": 120.51,
+      "change_pct": 0.29,
+      "fund_rate": 0.0,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "XOMUSDT",
+      "price": 148.98,
+      "high_24h": 149.19,
+      "low_24h": 147.2,
+      "change_pct": 1.21,
+      "fund_rate": 0.0,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "OXYUSDT",
+      "price": 57.14,
+      "high_24h": 57.16,
+      "low_24h": 56.65,
+      "change_pct": 0.76,
+      "fund_rate": 0.0,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "CLUSDT",
+      "price": 94.786,
+      "high_24h": 95.59,
+      "low_24h": 92.71,
+      "change_pct": 1.37,
+      "fund_rate": 0.0,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "EWYUSDT",
+      "price": 153.79,
+      "high_24h": 155.44,
+      "low_24h": 153.6,
+      "change_pct": -0.83,
+      "fund_rate": 0.0,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "EWJUSDT",
+      "price": 86.96,
+      "high_24h": 87.47,
+      "low_24h": 86.79,
+      "change_pct": -0.34,
+      "fund_rate": 0.0,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "CFGUSDT",
+      "price": 0.23759,
+      "high_24h": 0.24496,
+      "low_24h": 0.23698,
+      "change_pct": -2.83,
+      "fund_rate": 5e-05,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "KWEBUSDT",
+      "price": 28.778,
+      "high_24h": 28.899,
+      "low_24h": 28.684,
+      "change_pct": 0.13,
+      "fund_rate": 0.0,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "EWTUSDT",
+      "price": 88.33,
+      "high_24h": 88.33,
+      "low_24h": 87.78,
+      "change_pct": 0.25,
+      "fund_rate": 0.0,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "TQQQUSDT",
+      "price": 62.35,
+      "high_24h": 62.71,
+      "low_24h": 62.06,
+      "change_pct": 0.11,
+      "fund_rate": 0.0,
+      "tags": [
+        "未追高"
+      ]
+    },
+    {
+      "symbol": "SQQQUSDT",
+      "price": 52.5,
+      "high_24h": 52.96,
+      "low_24h": 52.32,
+      "change_pct": -0.47,
+      "fund_rate": -6.1e-05,
+      "tags": [
+        "未追高"
+      ]
+    }
+  ]
+}
