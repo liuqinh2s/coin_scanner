@@ -116,6 +116,24 @@ async def fetch_fund_rates(session: aiohttp.ClientSession, symbols: list[str]) -
     return result
 
 
+async def fetch_history_fund_rates(session: aiohttp.ClientSession, symbols: list[str]) -> dict[str, float]:
+    """逐个获取历史资金费率之和（参考 bitget_bot 负费率实现）"""
+    sem = asyncio.Semaphore(10)
+    result: dict[str, float] = {}
+
+    async def _fetch_one(sym):
+        async with sem:
+            url = (f"{BITGET_API}/api/v2/mix/market/history-fund-rate"
+                   f"?symbol={sym}&productType={PRODUCT_TYPE}&pageSize=20")
+            data = await fetch_json(session, url)
+            if data and data.get("code") == "00000" and data.get("data"):
+                total = sum(float(x["fundingRate"]) for x in data["data"])
+                result[sym] = total
+
+    await asyncio.gather(*[_fetch_one(s) for s in symbols], return_exceptions=True)
+    return result
+
+
 async def fetch_all_data(session: aiohttp.ClientSession, symbols: list[str], max_concurrent: int = 50) -> dict:
     """高并发批量获取所有币种的多周期 K 线"""
     all_sym: dict = {}
@@ -241,6 +259,10 @@ def compute_indicators(all_sym: dict):
                     continue
                 all_sym[symbol][cycle]["bolling"] = calc_bollinger(closes)
                 all_sym[symbol][cycle]["macd"] = calc_macd(closes)
+                # 4H 周期计算均线（强势启动标签用）
+                if cycle == "4H" and len(closes) >= 200:
+                    for w in (10, 20, 40, 80, 160):
+                        all_sym[symbol][cycle][f"ma{w}"] = sma(closes, w)
                 # 盘整放量突破所需指标 (仅 1H 周期且数据充足时计算)
                 if cycle == "1H" and len(closes) >= 200:
                     for w in (30, 60, 120, 160, 200):
@@ -622,6 +644,68 @@ def is_not_rubbish(sym) -> bool:
         return False
 
 
+# ── 强势启动 ──
+
+def detect_early_strong_trend(sym: dict) -> bool:
+    """
+    强势启动：4H 周期 MA 多头排列且加速发散
+
+    条件：
+    - ma10 > ma20 > ma40
+    - ma80 > ma160
+    - ma10 > ma80
+    - (ma10 - ma20) > (前7根ma10 - 前7根ma20) * 2
+    - (ma20 - ma40) > (前7根ma20 - 前7根ma40) * 2
+    - (前7根ma20 - 前7根ma40) / 前7根ma40 in [1.01, 1.015)
+    """
+    try:
+        c = sym.get("4H")
+        if not c:
+            return False
+
+        ma_keys = ["ma10", "ma20", "ma40", "ma80", "ma160"]
+        for k in ma_keys:
+            if k not in c or len(c[k]) < 9:
+                return False
+
+        ma10 = c["ma10"]
+        ma20 = c["ma20"]
+        ma40 = c["ma40"]
+        ma80 = c["ma80"]
+        ma160 = c["ma160"]
+
+        if not (ma10[-1] > ma20[-1] > ma40[-1]):
+            return False
+
+        if not (ma80[-1] > ma160[-1]):
+            return False
+
+        if not (ma10[-1] > ma80[-1]):
+            return False
+
+        cur_diff_10_20 = ma10[-1] - ma20[-1]
+        prev_diff_10_20 = ma10[-8] - ma20[-8]
+        if cur_diff_10_20 <= prev_diff_10_20 * 2:
+            return False
+
+        cur_diff_20_40 = ma20[-1] - ma40[-1]
+        prev_diff_20_40 = ma20[-8] - ma40[-8]
+        if cur_diff_20_40 <= prev_diff_20_40 * 2:
+            return False
+
+        if ma40[-8] <= 0:
+            return False
+        prev_ratio = prev_diff_20_40 / ma40[-8]
+        if prev_ratio < 1.01:
+            return False
+        if prev_ratio >= 1.015:
+            return False
+
+        return True
+    except (KeyError, IndexError, ValueError, TypeError):
+        return False
+
+
 # ══════════════════════════════════════════════════════════════
 #  数据校验
 # ══════════════════════════════════════════════════════════════
@@ -664,9 +748,9 @@ async def main():
         # 2. 高并发获取 K 线数据
         all_sym = await fetch_all_data(session, symbols, max_concurrent=10)
 
-        # 3. 获取资金费率
-        log.info("获取资金费率...")
-        fund_rates = await fetch_fund_rates(session, symbols)
+        # 3. 获取历史资金费率（近期利率之和，参考 bitget_bot 实现）
+        log.info("获取历史资金费率...")
+        fund_rates = await fetch_history_fund_rates(session, symbols)
 
     # 4. 计算技术指标
     log.info("计算技术指标...")
@@ -722,10 +806,10 @@ async def main():
         if check_anti_chase(sym):
             tags.append("未追高")
 
-        # 资金费率
-        fr = fund_rates.get(key, 0)
-        if fr < -0.0001:
-            tags.append(f"负费率({fr * 100:.4f}%)")
+        # 资金费率（近期利率之和，参考 bitget_bot）
+        total = fund_rates.get(key, 0)
+        if total < -0.05:
+            tags.append(f"负费率({total * 100:.2f}%)")
 
         # 波动充足
         if is_not_rubbish(sym):
@@ -742,6 +826,10 @@ async def main():
         # 盘整放量突破
         if detect_consolidation_breakout(sym, "1H"):
             tags.append("盘整突破")
+
+        # 强势启动（4H MA多头排列加速）
+        if detect_early_strong_trend(sym):
+            tags.append("强势启动")
 
         # 跳过没有任何标签的币
         if not tags:
@@ -760,7 +848,7 @@ async def main():
             "high_24h": high,
             "low_24h": low,
             "change_pct": round(change_pct, 2),
-            "fund_rate": round(fr, 6),
+            "fund_rate": round(total, 6),
             "tags": tags,
         })
 
